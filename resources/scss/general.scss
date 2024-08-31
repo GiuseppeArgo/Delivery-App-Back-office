@@ -1,0 +1,107 @@
+@import "colorpalette.scss";
+
+*{
+ box-sizing: border-box;
+}
+
+.hide{
+    display: none;
+}
+
+img{
+    max-width: 100%;
+}
+
+.form-container{
+    width: 80%;
+    height: min-content;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    border:2px solid $gray;
+}
+
+form{
+    height: min-content;
+}
+
+
+//
+// menu hamburger
+#sidebarMenu.collapse.show {
+    height: min-content !important; /* o un'altezza specifica */
+}
+
+#sidebarMenu.collapse.hide {
+    height: auto !important; /* o un'altezza specifica */
+}
+
+.green{
+    color: green;
+}
+
+.red{
+    color:$red;
+}
+// .index-restaurant .btn{
+//     width: 10vw;
+// }
+// .index-restaurant div a,
+// .index-restaurant form button{
+//     font-size: 1.3vw;
+// }
+
+// edit restaurant
+
+.square-text-container {
+    width: 25vw;
+    min-width: 150px;
+    aspect-ratio: 1;
+    // margin: 0 auto;
+}
+
+.square-image-container{
+
+    width: 25vw;
+    min-width: 150px;
+    aspect-ratio: 1;
+    // margin: auto;
+}
+
+.square-image,.square-image-restaurant,.square-image-edit-restaurant {
+    width: 25vw;
+    min-width: 100px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.square-image-restaurant{
+    min-width: 100px;
+}
+
+.square-image-edit-restaurant{
+    min-width: 136px;
+}
+
+.edit-restaurant{
+    min-width: 85px
+}
+
+
+td{
+    font-size: 12px;
+}
+
+.btn{
+    font-size: 13px;
+}
+
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
