@@ -4,6 +4,11 @@
  box-sizing: border-box;
 }
 
+.sidebar-row{
+    height: 90vh;
+}
+
+
 .hide{
     display: none;
 }
@@ -12,7 +17,20 @@ img{
     max-width: 100%;
 }
 
+.form-container-100{
+    position:relative;
+    width: 80%;
+    height: min-content;
+    max-height: 65vh;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    border:2px solid $gray;
+}
+
 .form-container{
+    position:relative;
     width: 80%;
     height: min-content;
     margin: 0 auto;
@@ -20,6 +38,36 @@ img{
     margin-bottom: 30px;
     border-radius: 20px;
     border:2px solid $gray;
+}
+
+// dish index
+
+// dish index
+
+
+.btn-edit-restaurant{
+    position: absolute;
+    top: 3%;
+    right: 2%;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: $blue;
+    color: $white;
+}
+
+.btn-back{
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    border-radius: 50%;
+}
+
+.btn-back i{
+    color: $blue;
+    font-size: 30px;
 }
 
 form{
@@ -70,8 +118,8 @@ form{
 }
 
 .square-image,.square-image-restaurant,.square-image-edit-restaurant {
-    width: 25vw;
-    min-width: 100px;
+    width: 20vw;
+    min-width: 150px;
     aspect-ratio: 1;
     object-fit: cover;
     max-width: 100%;
@@ -104,4 +152,25 @@ td{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+//dashboard
+
+.row-dashboard{
+  height: 90vh;
+  padding: 0;
+  margin: 0;
+
+}
+
+
+.form-visibility{
+    padding: 0;
+    margin: 0;
+}
+
+.btn-table{
+    width: 25px;
+    height: 25px;
 }

@@ -25,11 +25,11 @@
 
 </head>
 
-<body>
+<body class="central-body">
     <div id="app">
 
         {{-- header --}}
-        <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap shadow container-fluid p-2">
+        <header class="central-header navbar navbar-dark sticky-top bg-dark flex-md-nowrap shadow container-fluid p-2">
 
             {{-- logo --}}
             <div class="row justify-content-between ps-1">
@@ -66,14 +66,13 @@
         {{-- /header --}}
 
 
-        <div class="container-fluid vh-100">
-            <div class="row h-100">
+        <div class="container-fluid">
+            <div class="row sidebar-row">
 
                 {{-- sidebar --}}
                 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
                     <div class="position-sticky pt-3">
                         <ul class="d-flex flex-column fs-5 gap-2">
-
                             {{-- user --}}
                             <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
@@ -95,6 +94,9 @@
                             {{-- hide and show link --}}
                             @if (isset($userHasRestaurant) && $userHasRestaurant)
 
+
+
+
                                 {{-- Show menu --}}
                                 <li>
                                     <a class="nav-link text-white"
@@ -104,7 +106,7 @@
                                     </a>
                                 </li>
                                 {{-- /Show menu --}}
-                                
+
                                 {{-- Add dish --}}
                                 <li>
                                     <a class="nav-link text-white {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
@@ -129,13 +131,10 @@
                                     <a class="nav-link text-white"
                                         {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}
                                         href="{{ route('admin.stats.index') }}">
-                                        <i class="fa-solid fa-chart-line"></i> Statistische 
+                                        <i class="fa-solid fa-chart-line"></i> Statistische
                                     </a>
                                 </li>
                                 {{-- /Stats graph --}}
-
-
-
                             @endif
                             {{-- hide and show link --}}
 
@@ -161,7 +160,7 @@
                 {{-- /sidebar --}}
 
 
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <main class="col-md-9 col-lg-10">
                     @yield('content')
                 </main>
             </div>

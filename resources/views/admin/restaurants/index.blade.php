@@ -17,80 +17,22 @@
         {{-- /error message --}}
 
         @foreach ($restaurant as $curRestaurant)
-            {{-- container-btn --}}
-            <div class="form-container border-0">
-                <div class="row">
 
-                    {{-- btn edit --}}
-                    <div class=" col-sm-6 col-lg-3 py-2 flex-center justify-content-sm-end justify-content-lg-center ">
-                        <a class="btn btn-primary flex-center gap-1"
-                            href="{{ route('admin.restaurants.edit', ['restaurant' => $curRestaurant->slug]) }}">
-                            <i class="fa-solid fa-pen"></i>
-                            <span>
-                                Mod. ristorante
-                            </span>
-                        </a>
-                    </div>
-                    {{-- /btn edit --}}
+        {{-- header --}}
+            <h1 class="text-center">Dettagli ristorante</h1>
+        {{-- /header --}}
 
-                    {{-- Btn orders --}}
-                    <div class=" col-sm-6 col-lg-3 flex-center justify-content-sm-start justify-content-lg-center py-2">
-                        <form action="{{ route('admin.orders.index') }}" method="GET">
-                            @csrf
-                            <input type="text" class="hide" name="restaurant_id" value="{{ $curRestaurant->id }}">
-                            <button type="submit" class="btn btn-primary flex-center gap-1">
-                                <i class="fa-solid fa-list-ul"></i>
-                                <span>
-                                    Visualizza ordini
-                                </span>
-                            </button>
-                        </form>
-                    </div>
-                    {{-- /Btn orders --}}
-
-                    {{-- btn add dish --}}
-                    <div class=" col-sm-6  col-lg-3 flex-center justify-content-sm-end justify-content-lg-center py-2">
-                        <form action="{{ route('admin.dishes.create') }}" method="GET" class="md_index-btn">
-                            <input type="text" class="hide" name="restaurant_id" value="{{ $curRestaurant->id }}">
-                            <button type="submit" class="btn btn-primary flex-center gap-1">
-                                <i class="fa-solid fa-plus"></i>
-                                <span>
-                                    Aggiungi piatto
-                                </span>
-                            </button>
-                        </form>
-
-                    </div>
-                    {{-- /btn add dish --}}
-
-                    {{-- Show menu --}}
-                    <div class="col col-sm-6 col-lg-3 flex-center justify-content-sm-start justify-content-lg-center py-2">
-                        <form action="{{ route('admin.dishes.index') }}" method="GET" class="md_index-btn">
-                            <input type="text" class="hide" name="restaurant_id" value="{{ $curRestaurant->id }}">
-                            <button type="submit" class="btn btn-primary flex-center gap-1">
-                                <i class="fa-solid fa-list"></i>
-                                <span>
-                                    Visualizza menu
-                                </span>
-                            </button>
-                        </form>
-                    </div>
-                    {{-- /Show menu --}}
+        {{-- container --}}
+        <div class="form-container p-2 index-restaurant">
 
 
+                {{-- btn edit --}}
+                <div class="btn-edit-restaurant">
+                    <a href="{{ route('admin.restaurants.edit', ['restaurant' => $curRestaurant->slug]) }}">
+                        <i class="text-white  fa-solid fa-pen"></i>
+                    </a>
                 </div>
-            </div>
-            {{-- /container-btn --}}
-
-
-            {{-- container --}}
-            <div class="form-container p-5 index-restaurant">
-
-                {{-- header --}}
-                <div class="mb-2">
-                    <h1 class="text-center mb-4">Dettagli ristorante</h1>
-                </div>
-                {{-- /header --}}
+                {{-- /btn edit --}}
 
                 <div class="container">
 
@@ -106,7 +48,8 @@
 
 
                         {{-- restaurant text --}}
-                        <div class="col-sm-12 col-md-12 col-lg-6 text-lg-start p-4 d-flex flex-column gap-2 align-items-center restaurants-details">
+                        <div
+                            class="col-sm-12 col-md-12 col-lg-6 text-lg-start p-4 d-flex flex-column gap-2 align-items-center restaurants-details">
 
                             {{-- name --}}
                             <div>
@@ -114,23 +57,23 @@
                                     <strong>Nome ristorante: </strong>
                                 </p>
                                 <span class="">{{ ucwords(strtolower($curRestaurant->name)) }}</span>
-                            {{-- /name --}}
+                                {{-- /name --}}
 
-                            {{-- city --}}
+                                {{-- city --}}
                                 <p class="p-0 m-0">
                                     <strong>Città: </strong>
                                 </p>
                                 <span class="">{{ $curRestaurant->city }}</span>
-                            {{-- /city --}}
+                                {{-- /city --}}
 
-                            {{-- address --}}
+                                {{-- address --}}
                                 <p class="p-0 m-0">
                                     <strong>Indirizzo: </strong>
                                 </p>
                                 <span class="">{{ ucwords(strtolower($curRestaurant->address)) }}</span>
-                            {{-- /address --}}
+                                {{-- /address --}}
 
-                            {{-- types --}}
+                                {{-- types --}}
                                 <p class="p-0 m-0">
                                     @if (count($curRestaurant->types) === 1)
                                         <strong>Tipologia: </strong>

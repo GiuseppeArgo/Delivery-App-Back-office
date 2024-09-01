@@ -1,21 +1,20 @@
 @extends('layouts.admin')
 
 @section('content')
-    {{-- container  --}}
-    <div class="text-center mt-5">
-        <a class="btn btn-primary text-white" href="{{ route('admin.restaurants.index') }}">
-            <i class="fa-solid fa-circle-arrow-left"></i>
-            Indietro
-        </a>
+    {{-- header --}}
+    <div class="mt-5 mb-4">
+        <h1 class="text-center">Modifica i tuoi dati</h1>
     </div>
+    {{-- header --}}
+
+    {{-- container  --}}
     <div class="form-container p-5">
 
-        {{-- header --}}
-        <div class="mb-4">
-            <h1 class="text-center">Modifica i tuoi dati</h1>
+        <div class="btn-back">
+            <a href="{{ route('admin.restaurants.index') }}">
+                <i class="fa-solid fa-circle-arrow-left"></i>
+            </a>
         </div>
-        {{-- header --}}
-
 
         {{-- form --}}
         <form class="d-flex flex-column" action="{{ route('admin.restaurants.update', ['restaurant' => $restaurant->slug]) }}"
@@ -135,7 +134,7 @@
 
 
             {{-- image --}}
-            <div class="container-preview m-auto mt-3 square-image-container">
+            <div class="container-preview m-auto mt-3 ">
                 <div class="mt-2 card-img">
                     {{-- old image --}}
                     @if ($restaurant->image)
@@ -145,19 +144,19 @@
                     {{-- /old image --}}
 
                     {{-- new image --}}
-                    <img id="imagePreview" class="hide square-image" src="" alt="new-image">
+                    <img id="imagePreview" class="hide mb-2 square-image" src="" alt="new-image">
                     {{-- /new image --}}
+
+                    {{-- btn-remove --}}
+                    <div id="btnDelete" class="fa-solid fa-xmark" onclick="removeImage(event)">
+                    </div>
+                    {{-- /btn-remove --}}
+
 
                 </div>
                 {{-- /image --}}
             </div>
 
-            {{-- btn-remove --}}
-            <div class="flex-center mb-2">
-                <button id="btnDelete" class="btn btn-danger hide mt-3"
-                    onclick="removeImage(event)">Rimuovi</button>
-            </div>
-            {{-- /btn-remove --}}
 
             {{-- button submit --}}
             <div class="flex-center">
@@ -277,7 +276,5 @@
             });
         });
         // /INPUT FILE
-
-
     </script>
 @endsection
