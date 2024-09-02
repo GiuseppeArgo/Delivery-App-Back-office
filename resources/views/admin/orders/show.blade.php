@@ -2,31 +2,24 @@
 
 @section('content')
 
-{{-- container btn --}}
-<div class="text-center mt-5">
-    {{-- Btn orders --}}
-    <form action="{{ route('admin.orders.index') }}" method="GET">
-        @csrf
-        <input type="text" class="hide" name="restaurant_id" value="{{ $orders['restaurant_id'] }}">
-        <button type="submit" class="btn btn-primary">
-            <i class="fa-solid fa-circle-arrow-left"></i> Indietro
-        </button>
-    </form>
-    {{-- /Btn orders --}}
+{{-- title --}}
+    <h1 class="mb-4 mt.5 text-center">Ordini</h1>
+{{-- /title --}}
 
-</div>
-{{-- /container btn --}}
-    {{-- container --}}
-    <div class="form-container p-2">
-
-        {{-- header --}}
-        <div class="mb-4">
-            <h1 class="m-2 text-center">Ordini</h1>
-        </div>
-        {{-- /header --}}
+{{-- container --}}
+<div class="form-container p-5">
+        {{-- btn-back-menu --}}
+        <form action="{{ route('admin.orders.index') }}" method="GET">
+            @csrf
+            <input type="text" class="hide" name="restaurant_id" value="{{ $orders['restaurant_id'] }}">
+            <button type="submit" class="btn btn-primary btn-table flex-center rounded-5 btn-menu">
+                <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
+            </button>
+        </form>
+        {{-- btn-back-menu --}}
 
         {{-- table --}}
-        <table class="table table-responsive striped text-center ">
+        <table class="table table-responsive striped text-center mt-5 ">
 
             {{-- thead --}}
             <thead>
@@ -62,5 +55,4 @@
 
     </div>
     {{-- /container --}}
-
 @endsection

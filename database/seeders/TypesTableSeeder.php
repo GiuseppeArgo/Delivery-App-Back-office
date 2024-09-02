@@ -13,7 +13,7 @@ class TypesTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $types = ['Americana','Italiana','Giapponese','Cinese','Turca','Greca', 'Vegetariana','Indiana','Francese'];
+        $types = ['American','Italiana','Japanese','Chinese','Greek', 'Vegan','Indian','Français'];
 
         foreach ($types as $type) {
             $newType = new Type();

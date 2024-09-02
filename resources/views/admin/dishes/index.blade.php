@@ -3,36 +3,50 @@
 @section('content')
     {{-- btn --}}
     {{-- <div class="flex-center mt-5 gap-2"> --}}
-        {{-- btn home --}}
-        {{-- <a class="btn btn-primary" href="{{ route('admin.restaurants.index') }}">
+    {{-- btn home --}}
+    {{-- <a class="btn btn-primary" href="{{ route('admin.restaurants.index') }}">
             <i class="fa-solid fa-circle-arrow-left"></i>
             Indietro
         </a> --}}
-        {{-- btn home --}}
+    {{-- btn home --}}
 
-        {{-- </div> --}}
-        {{-- /btn --}}
+    {{-- </div> --}}
+    {{-- /btn --}}
 
-        <div class="container">
-            <div class="row justify-content-center">
-                {{-- header --}}
+    <div class="container">
+        <div class="row justify-content-center">
+            {{-- header --}}
 
-                    <div class="mt-5 mb-2  text-center ">
-                        <h1 class="p-0 d-block">
-                            Menu del ristorante
-                        </h1>
+            <div class="mt-5 mb-2  text-center ">
+                <h1 class="p-0 d-block">
+                    Menu del ristorante
+                </h1>
+
+                <div class="flex-center gap-2">
+                    {{-- btn-home --}}
+                    <div>
+                        <a href="{{ route('admin.restaurants.index') }}" class="btn btn-primary btn-table flex-center rounded-5">
+                            <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
+                        </a>
+                    </div>
+                    {{-- /btn-home --}}
+                    <div>
                         <span class="">
-                            ( Totale piatti: {{ count($dishesList) }}  )
+                            ( Totale piatti: {{ count($dishesList) }} )
                         </span>
+                    </div>
 
-                        {{-- add dish--}}
-                        <form action="{{ route('admin.dishes.create') }}" method="GET" class="d-inline-block">
+                    {{-- add dish --}}
+                    <div>
+                        <form action="{{ route('admin.dishes.create') }}" method="GET">
                             <input type="text" class="hide" name="restaurant_id" value="{{ $restaurant_id }}">
-                            <button type="submit" class="btn btn-success">
+                            <button type="submit" class="btn btn-primary btn-table flex-center rounded-5">
                                 <i class="fa-solid fa-plus"></i>
                             </button>
                         </form>
-                        {{-- add dish--}}
+                    </div>
+                    {{-- add dish --}}
+                </div>
 
 
 
@@ -73,19 +87,23 @@
 
                                         {{-- change status --}}
 
-                                            <form class="form-visibility" action="{{ route('admin.dishes.toggle', ['id' => $dish->id]) }}" method="POST">
-                                                @csrf
-                                                @method('PUT')
-                                                <input type="text" class="hide" name="restaurant_id" value="{{ $restaurant_id }}">
-                                                <input type="text" class="hide" name="visibility" value="{{ $dish->visibility }}">
-                                                <button type="submit" class="btn @if($dish->visibility == 1) btn btn-outline-success @else btn btn-outline-danger @endif">
-                                                    <span>
-                                                        {{ $dish->visibility == 1 ? 'SI' : 'NO' }}
-                                                    </span>
-                                                </button>
-                                            </form>
+                                        <form class="form-visibility flex-center"
+                                            action="{{ route('admin.dishes.toggle', ['id' => $dish->id]) }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <input type="text" class="hide" name="restaurant_id"
+                                                value="{{ $restaurant_id }}">
+                                            <input type="text" class="hide" name="visibility"
+                                                value="{{ $dish->visibility }}">
+                                            <button type="submit"
+                                                class="btn-table btn flex-center @if ($dish->visibility == 1) btn btn-outline-success @else btn btn-outline-danger @endif">
+                                                <span>
+                                                    {{ $dish->visibility == 1 ? 'SI' : 'NO' }}
+                                                </span>
+                                            </button>
+                                        </form>
 
-                                            {{-- change status --}}
+                                        {{-- change status --}}
 
                                     </td>
                                     {{-- /status --}}

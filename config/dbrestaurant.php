@@ -72,14 +72,14 @@ return [
         'description' => 'Un Viaggio Sensoriale nel Cuore della Grecia.',
         'p_iva' => '12345678908'
     ],
-    [
-        'user_id' => 9,
-        'name' => 'Hanedan',
-        'city' => 'Milano',
-        'address' => 'Via Molino 9',
-        'image' => 'img/ristoranti/008.png',
-        'description' => 'Un Viaggio Sensoriale nel Cuore della Cucina Turca.',
-        'p_iva' => '12345678909'
-    ],
+    // [
+    //     'user_id' => 9,
+    //     'name' => 'Hanedan',
+    //     'city' => 'Milano',
+    //     'address' => 'Via Molino 9',
+    //     'image' => 'img/ristoranti/008.png',
+    //     'description' => 'Un Viaggio Sensoriale nel Cuore della Cucina Turca.',
+    //     'p_iva' => '12345678909'
+    // ],
 ];
 ?>

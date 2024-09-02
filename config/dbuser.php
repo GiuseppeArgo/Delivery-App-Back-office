@@ -48,12 +48,12 @@ return [
         'email' => 'frank.garcia@example.com',
         'password' => 'password234'
     ],
-    [
-        'name' => 'Grace',
-        'lastname' => 'Miller',
-        'email' => 'grace.miller@example.com',
-        'password' => 'password567'
-    ],
+    // [
+    //     'name' => 'Grace',
+    //     'lastname' => 'Miller',
+    //     'email' => 'grace.miller@example.com',
+    //     'password' => 'password567'
+    // ],
     // [
     //     'name' => 'Harry',
     //     'lastname' => 'Davis',

@@ -58,6 +58,10 @@ img{
     color: $white;
 }
 
+.btn-stats{
+    top: 2%;
+}
+
 .btn-back{
     position: absolute;
     top: 2%;
@@ -65,9 +69,16 @@ img{
     border-radius: 50%;
 }
 
-.btn-back i{
+.btn-back i,
+.btn-back-menu{
     color: $blue;
     font-size: 30px;
+}
+
+.btn-menu{
+    position: absolute;
+    top: 3%;
+    left: 2%;
 }
 
 form{
@@ -99,6 +110,12 @@ form{
 // .index-restaurant form button{
 //     font-size: 1.3vw;
 // }
+
+// edit restaurant
+
+.btn-typologies{
+    width: 100%;
+}
 
 // edit restaurant
 
@@ -171,6 +188,13 @@ td{
 }
 
 .btn-table{
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
 }
+
+
+
+
+
+
+

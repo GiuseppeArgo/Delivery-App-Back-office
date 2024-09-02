@@ -1,46 +1,27 @@
 @extends('layouts.admin')
 
 @section('content')
-    {{-- button --}}
-    <div class="form-container border-white ">
-        <div class="row ">
-            <div class="col-6 d-flex justify-content-end">
-                <a class="btn btn-primary col-lg-3 col-md-6 col-sm-6 flex-center gap-1"
-                    href="{{ route('admin.dishes.index') }}">
-                    <i class="fa-solid fa-circle-arrow-left"></i>
-                    <span>
-                        Indietro
-                    </span>
-                </a>
-            </div>
-            <div class="col-6 d-flex justify-content-start">
-                <a class="btn btn-primary col-lg-3 col-md-6 col-sm-6 flex-center gap-1"
-                    href="{{ route('admin.restaurants.index') }}">
-                    <i class="fa-solid fa-circle-arrow-left"></i>
-                    <span>
-                        Home
-                    </span>
-                </a>
-            </div>
-        </div>
-    </div>
-    {{-- /button --}}
 
-    {{-- container --}}
-    <div class="form-container p-5">
 
-        <div class="mb-4">
-            {{-- title --}}
-            <h1 class="text-center">Aggiungi un piatto</h1>
-            {{-- /title --}}
-        </div>
+{{-- title --}}
+<h1 class="text-center mb-4 mt-5">Aggiungi un piatto</h1>
+{{-- /title --}}
+
+{{-- container --}}
+<div class="form-container p-5">
+
+        {{-- btn-back-menu --}}
+        <a href="{{ route('admin.dishes.index') }}" class="btn btn-primary btn-table flex-center rounded-5 btn-menu">
+            <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
+        </a>
+        {{-- / btn-back-menu --}}
 
         <form action="{{ route('admin.dishes.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             {{-- Name --}}
-            <div class="mb-3">
-                <label for="name" class="form-label">Nome piatto <span class="asterisco">*</span>
+            <div class="container mb-3">
+                <label for="name" class="form-label mt-3">Nome piatto <span class="asterisco">*</span>
                     {{-- error message --}}
                     @error('name')
                         <span class="text-danger">{{ $errors->first('name') }}</span>
@@ -60,7 +41,7 @@
             {{-- /name --}}
 
             {{-- Description --}}
-            <div class="mb-3">
+            <div class="container mb-3">
                 <label for="description" class="form-label">Descrizione <span class="asterisco">*</span>
 
                     {{-- error message --}}
@@ -76,49 +57,55 @@
             </div>
             {{-- /Description --}}
 
-            {{-- Price --}}
-            <div class="mb-3">
-                <label for="price" class="form-label">Prezzo <span class="asterisco">*</span>
+            <div class="container">
+                <div class="row">
+                    {{-- Price --}}
+                    <div class="col-12 col-md-7 mb-3">
+                        <label for="price" class="form-label">Prezzo <span class="asterisco">*</span>
 
-                    {{-- error message --}}
-                    @error('price')
-                        <span class="text-danger">{{ $errors->first('price') }}</span>
-                    @enderror
-                    {{-- /error message --}}
+                            {{-- error message --}}
+                            @error('price')
+                                <span class="text-danger">{{ $errors->first('price') }}</span>
+                            @enderror
+                            {{-- /error message --}}
 
-                </label>
+                        </label>
 
-                <input value="{{ old('price') }}" type="number" name="price"
-                    class="form-control @error('price') is-invalid @enderror" placeholder="es. 10.00" id="price"
-                    aria-describedby="price" required min="3" max="30" step="0.01">
+                        <input value="{{ old('price') }}" type="number" name="price"
+                            class="form-control @error('price') is-invalid @enderror" placeholder="es. 10.00" id="price"
+                            aria-describedby="price" required min="3" max="30" step="0.01">
+                    </div>
+                    {{-- /Price --}}
+
+                    {{-- input file image --}}
+                    <div class="col-12 col-md-5 mb-3">
+                        <label for="image" class="form-label">Immagine <span class="asterisco">*</span>
+
+                            {{-- error message --}}
+                            @error('image')
+                                <span class="text-danger">{{ $errors->first('image') }}</span>
+                            @enderror
+                            {{-- /error message --}}
+
+                        </label>
+
+                        <span id="errorImage" class="text-danger"></span>
+                        {{-- <input type="file" name="image" id="image" aria-describedby="image"
+                            class="form-control @error('image') is-invalid @enderror" required> --}}
+
+                        <!-- customize button -->
+                        <button type="button" class="custom-file-upload btn btn-primary d-block">Selziona</button>
+
+                        <!--  hide Input file -->
+                        <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
+                            id="image" style="display:none;">
+
+                    </div>
+                    {{-- /input file image --}}
+
+                </div>
             </div>
-            {{-- /Price --}}
 
-            {{-- input file image --}}
-            <div class="mb-3">
-                <label for="image" class="form-label">Immagine <span class="asterisco">*</span>
-
-                    {{-- error message --}}
-                    @error('image')
-                        <span class="text-danger">{{ $errors->first('image') }}</span>
-                    @enderror
-                    {{-- /error message --}}
-
-                </label>
-
-                <span id="errorImage" class="text-danger"></span>
-                {{-- <input type="file" name="image" id="image" aria-describedby="image"
-                    class="form-control @error('image') is-invalid @enderror" required> --}}
-
-                <!-- customize button -->
-                <button type="button" class="custom-file-upload btn btn-primary d-block">Scegli file</button>
-
-                <!--  hide Input file -->
-                <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
-                    id="image" style="display:none;">
-
-            </div>
-            {{-- /input file image --}}
 
             <div class="m-auto mt-3 square-image-container">
                 {{-- img preview --}}

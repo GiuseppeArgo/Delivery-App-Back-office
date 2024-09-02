@@ -8,13 +8,16 @@
     {{-- header --}}
 
     {{-- container  --}}
-    <div class="form-container p-5">
+    <div class="form-container pt-5 pb-5 ps-2 pe-2">
 
+        {{-- btn-home --}}
         <div class="btn-back">
             <a href="{{ route('admin.restaurants.index') }}">
                 <i class="fa-solid fa-circle-arrow-left"></i>
             </a>
         </div>
+        {{-- /btn-home --}}
+
 
         {{-- form --}}
         <form class="d-flex flex-column" action="{{ route('admin.restaurants.update', ['restaurant' => $restaurant->slug]) }}"
@@ -23,44 +26,48 @@
             @method('put')
 
 
-            {{-- title --}}
-            <div class="mb-3">
-                <label for="name">Nome attività <span class="asterisco">*</span>
+            <div class="container mb-3">
+                <div class="row">
 
-                    {{-- error message --}}
-                    @error('name')
-                        <span class="text-danger"> {{ $errors->first('name') }} </span>
-                    @enderror
-                    {{-- /error message --}}
+                    {{-- title --}}
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        <label for="name">Nome attività <span class="asterisco">*</span>
 
-                </label>
-                <input class="form-control @error('name') is-invalid @enderror" type="text" id="name" name="name"
-                    minlength="3" maxlength="20" value="{{ old('name', $restaurant->name) }}" placeholder="es. Bar Portici"
-                    required>
+                            {{-- error message --}}
+                            @error('name')
+                                <span class="text-danger"> {{ $errors->first('name') }} </span>
+                            @enderror
+                            {{-- /error message --}}
+
+                        </label>
+                        <input class="form-control @error('name') is-invalid @enderror" type="text" id="name" name="name"
+                            minlength="3" maxlength="20" value="{{ old('name', $restaurant->name) }}" placeholder="es. Bar Portici"
+                            required>
+                    </div>
+                    {{-- /title --}}
+
+                    {{-- address --}}
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        <label for="address">Indirizzo <span class="asterisco">*</span>
+
+                            {{-- error message --}}
+                            @error('address')
+                                <span class="text-danger"> {{ $errors->first('address') }} </span>
+                            @enderror
+                            {{-- /error message --}}
+
+                        </label>
+                        <input class="form-control @error('address') is-invalid @enderror" type="text" id="address"
+                            name="address" minlength="3" maxlength="20" value="{{ old('address', $restaurant->address) }}"
+                            placeholder="es. Via Ugo Foscolo" required>
+                    </div>
+                    {{-- /address --}}
+
+                </div>
             </div>
-            {{-- /title --}}
-
-
-            {{-- address --}}
-            <div class="mb-3">
-                <label for="address">Indirizzo <span class="asterisco">*</span>
-
-                    {{-- error message --}}
-                    @error('address')
-                        <span class="text-danger"> {{ $errors->first('address') }} </span>
-                    @enderror
-                    {{-- /error message --}}
-
-                </label>
-                <input class="form-control @error('address') is-invalid @enderror" type="text" id="address"
-                    name="address" minlength="3" maxlength="20" value="{{ old('address', $restaurant->address) }}"
-                    placeholder="es. Via Ugo Foscolo" required>
-            </div>
-            {{-- /address --}}
-
 
             {{-- description --}}
-            <div class="mb-3">
+            <div class="container mb-3">
                 <label for="description">Descrizione <span class="asterisco">*</span>
 
                     {{-- error message --}}
@@ -77,7 +84,11 @@
 
 
             {{-- Tiypologies --}}
-            <span class="label">Tipologie <span class="asterisco">*</span> </span>
+            <div class="container">
+            <span class="label">
+                Tipologie
+                <span class="asterisco">*</span>
+            </span>
 
             {{-- errors typologies --}}
             @if ($errors->first('tipologies'))
@@ -92,10 +103,10 @@
             {{-- errors typologies --}}
 
             <div class="container mb-4">
-                <div class="row" role="group" aria-label="Basic checkbox toggle button group">
+                <div class="row justify-content-center align-items-center" role="group" aria-label="Basic checkbox toggle button group">
                     @foreach ($listTypes as $curType)
                         <div
-                            class="col-lg-4 col-md-6 btn-group flex flex-wrap justify-content-center align-items-center mt-3">
+                            class="col-6 col-sm-4 col-md-3 col-lg-3 p-1 rounded-0 btn-group flex flex-wrap justify-content-center align-items-center">
                             <input type="checkbox" class="btn-check" id="tech-{{ $curType->id }}" name="tipologies[]"
                                 value="{{ $curType->id }}" @checked(in_array($curType->id, old('tipologies', $restaurant->types->pluck('id')->toArray())))>
                             <label class="btn btn-outline-primary"
@@ -104,18 +115,19 @@
                     @endforeach
                 </div>
             </div>
+        </div>
             {{-- /Tiypologies --}}
 
 
             {{-- input file image --}}
-            <div class="mb-3">
+            <div class="container mb-3">
                 <label for="image"> Immagine <span class="asterisco">*</span></label>
                 <span id="errorImage" class="text-danger"></span>
                 {{-- <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
                     id="image"> --}}
 
                 <!-- customize button -->
-                <button type="button" class="custom-file-upload btn btn-primary d-block">Scegli file</button>
+                <button type="button" class="custom-file-upload btn btn-primary d-block ">Scegli file</button>
 
                 <!--  hide Input file -->
                 <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
@@ -148,7 +160,8 @@
                     {{-- /new image --}}
 
                     {{-- btn-remove --}}
-                    <div id="btnDelete" class="fa-solid fa-xmark" onclick="removeImage(event)">
+                    <div id="btnDelete" class="hide" onclick="removeImage(event)">
+                        <span>Rimuovi</span>
                     </div>
                     {{-- /btn-remove --}}
 

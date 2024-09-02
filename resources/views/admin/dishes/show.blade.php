@@ -1,29 +1,24 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="flex-center gap-3 mt-5 mb-4">
-        <a href="{{ route('admin.dishes.index') }}" class="btn btn-primary">
-            <i class="fa-solid fa-circle-arrow-left"></i>
-             Indietro
-        </a>
-        <a class="btn btn-primary" href="{{ route('admin.dishes.edit', ['dish' => $dish->slug]) }}">
-            <i class="fa-solid fa-pen"></i> Modifica
-        </a>
-        {{-- btn home --}}
-        <a class="btn btn-primary" href="{{ route('admin.restaurants.index') }}">
-            <i class="fa-solid fa-circle-arrow-left"></i>
-             Home
-        </a>
-        {{-- btn home --}}
-</div>
+
 
 {{-- success message --}}
 @include('partials.session_message')
 {{-- /success message --}}
 
+<h1 class="text-center mt-5 mb-4">Dettagli piatto</h1>
 {{-- container --}}
 <div class="form-container container p-5">
-        <h1 class="text-center mb-4">Dettagli piatto</h1>
+
+
+        <a href="{{ route('admin.dishes.index') }}" class="btn btn-primary btn-table flex-center rounded-5 btn-menu">
+            <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
+        </a>
+        <a class="btn-edit-restaurant" href="{{ route('admin.dishes.edit', ['dish' => $dish->slug]) }}">
+            <i class="fa-solid fa-pen"></i>
+        </a>
+
         <div class="row justify-content-center align-items-center">
 
             {{-- img --}}

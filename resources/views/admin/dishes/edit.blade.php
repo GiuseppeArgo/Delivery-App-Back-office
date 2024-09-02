@@ -1,30 +1,20 @@
 @extends('layouts.admin')
 
 @section('content')
-    {{-- container btn --}}
-    <div class="text-center">
-        <div class="flex-center gap-2 mt-5">
-            <a href="{{ route('admin.dishes.index') }}" class="btn btn-primary">
-                <i class="fa-solid fa-circle-arrow-left"></i>
-                Indietro
-            </a>
-            {{-- btn home --}}
-            <a class="btn btn-primary" href="{{ route('admin.restaurants.index') }}">
-                <i class="fa-solid fa-circle-arrow-left"></i> Home
-            </a>
-            {{-- btn home --}}
-        </div>
-    </div>
-    {{-- /container btn --}}
+    {{-- title --}}
+    <h1 class=" mb-4 mt-5 text-center">Modifica piatto</h1>
+    {{-- /title --}}
 
     {{-- container --}}
     <div class="form-container p-5">
 
-        {{-- header container --}}
-        <div class="mb-4">
-            <h1 class="text-center">Modifica piatto</h1>
-        </div>
-        {{-- /header container --}}
+        {{-- btn-back-menu --}}
+        <a href="{{ route('admin.dishes.index') }}" class="btn btn-primary btn-table flex-center rounded-5 btn-menu">
+            <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
+        </a>
+        {{-- btn-back-menu --}}
+
+
 
         {{-- @include('partials.errors') --}}
 
@@ -34,31 +24,55 @@
             @csrf
             @method('PUT')
 
-            {{-- Name --}}
-            <div class="mb-3">
-                <label for="name" class="form-label">Nome piatto <span class="asterisco">*</span>
-                    {{-- error message --}}
-                    @error('name')
-                        <span class="text-danger"> {{ $errors->first('name') }} </span>
-                    @enderror
+            <div class="container">
+                <div class="row">
+                    {{-- Name --}}
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-3">
+                        <label for="name" class="form-label mt-4">Nome piatto <span class="asterisco">*</span>
+                            {{-- error message --}}
+                            @error('name')
+                                <span class="text-danger"> {{ $errors->first('name') }} </span>
+                            @enderror
 
-                    {{-- Error name unique --}}
-                    @if (session('error'))
-                        <span class="text-danger">{{ session('error') }}</span>
-                    @endif
-                    {{-- error message --}}
+                            {{-- Error name unique --}}
+                            @if (session('error'))
+                                <span class="text-danger">{{ session('error') }}</span>
+                            @endif
+                            {{-- error message --}}
 
-                </label>
+                        </label>
 
-                <input type="text" id="name" name="name" class="form-control @error('name') is-invalid @enderror"
-                    minlength="3" maxlength="20" value="{{ old('name', $dish->name) }}" placeholder="es. Carbonara"
-                    required>
+                        <input type="text" id="name" name="name"
+                            class="form-control @error('name') is-invalid @enderror" minlength="3" maxlength="20"
+                            value="{{ old('name', $dish->name) }}" placeholder="es. Carbonara" required>
+                    </div>
+                    {{-- /Name --}}
+
+                    {{-- Availability --}}
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-3 align-self-end">
+                        <label class="form-label">Disponibilità <span class="asterisco">*</span>
+
+                            {{-- errors --}}
+                            <span class="text-danger"> {{ $errors->first('visibility') }} </span>
+                            {{-- /errors --}}
+
+                        </label>
+                        <div class="btn-group d-flex" role="group" aria-label="Disponibilità">
+                            <input type="radio" name="visibility" id="active" value="1" class="btn-check"
+                                {{ $dish->visibility == 1 ? 'checked' : '' }}>
+                            <label class="btn btn-outline-primary btn-label" for="active">Si</label>
+                            <input type="radio" name="visibility" id="inactive" value="0" class="btn-check"
+                                {{ $dish->visibility == 0 ? 'checked' : '' }}>
+                            <label class="btn btn-outline-primary btn-label truncate text-nowrap" for="inactive">No</label>
+                        </div>
+                    </div>
+                    {{-- Availability --}}
+                </div>
             </div>
-            {{-- /Name --}}
 
 
             {{-- Description --}}
-            <div class="mb-3">
+            <div class="container mb-3">
                 <label for="description" class="form-label">Descrizione <span class="asterisco">*</span>
 
                     {{-- error message --}}
@@ -74,61 +88,45 @@
             {{-- Description --}}
 
 
-            {{-- Price --}}
-            <div class="mb-3">
-                <label for="price" class="form-label">Prezzo <span class="asterisco">*</span>
+            <div class="container">
+                <div class="row">
+                    {{-- Price --}}
+                    <div class="col-6 mb-3">
+                        <label for="price" class="form-label">Prezzo <span class="asterisco">*</span>
 
-                    {{-- error message --}}
-                    @error('price')
-                        <span class="text-danger"> {{ $errors->first('price') }} </span>
-                    @enderror
-                    {{-- /error message --}}
+                            {{-- error message --}}
+                            @error('price')
+                                <span class="text-danger"> {{ $errors->first('price') }} </span>
+                            @enderror
+                            {{-- /error message --}}
 
-                </label>
-                <input type="number" id="price" name="price"
-                    class="form-control @error('price') is-invalid @enderror" value="{{ old('price', $dish->price) }}"
-                    placeholder="es. 10.00" required min="3" max="30" step="0.01">
-            </div>
-            {{-- /Price --}}
+                        </label>
+                        <input type="number" id="price" name="price"
+                            class="form-control @error('price') is-invalid @enderror" value="{{ old('price', $dish->price) }}"
+                            placeholder="es. 10.00" required min="3" max="30" step="0.01">
+                    </div>
+                    {{-- /Price --}}
 
+                    {{-- input file image --}}
+                    <div class="col-6 mb-3">
+                        <label for="image" class="form-label">Immagine <span class="asterisco">*</span></label>
+                        {{-- <input type="file" name="image" id="image"
+                            class="form-control @error('image') is-invalid @enderror"> --}}
 
-            {{-- Availability --}}
-            <div class="mb-3">
-                <label class="form-label">Disponibilità <span class="asterisco">*</span>
+                        <!-- customize button -->
+                        <button type="button" class="custom-file-upload btn btn-primary d-block">Scegli file</button>
 
-                    {{-- errors --}}
-                    <span class="text-danger"> {{ $errors->first('visibility') }} </span>
-                    {{-- /errors --}}
+                        <!--  hide Input file -->
+                        <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
+                            id="image" style="display:none;">
 
-                </label>
-                <div class="btn-group d-flex" role="group" aria-label="Disponibilità">
-                    <input type="radio" name="visibility" id="active" value="1" class="btn-check"
-                        {{ $dish->visibility == 1 ? 'checked' : '' }}>
-                    <label class="btn btn-outline-primary btn-label" for="active">Si</label>
-                    <input type="radio" name="visibility" id="inactive" value="0" class="btn-check"
-                        {{ $dish->visibility == 0 ? 'checked' : '' }}>
-                    <label class="btn btn-outline-primary btn-label truncate text-nowrap" for="inactive">No</label>
+                        <span id="errorImage" class="text-danger"></span>
+                    </div>
+                    {{-- /input file image --}}
+
                 </div>
             </div>
-            {{-- Availability --}}
 
-
-            {{-- input file image --}}
-            <div class="mb-3">
-                <label for="image" class="form-label">Immagine <span class="asterisco">*</span></label>
-                {{-- <input type="file" name="image" id="image"
-                    class="form-control @error('image') is-invalid @enderror"> --}}
-
-                <!-- customize button -->
-                <button type="button" class="custom-file-upload btn btn-primary d-block">Scegli file</button>
-
-                <!--  hide Input file -->
-                <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
-                    id="image" style="display:none;">
-
-                <span id="errorImage" class="text-danger"></span>
-            </div>
-            {{-- /input file image --}}
 
 
             {{-- old and new preview image --}}
@@ -138,15 +136,15 @@
                         <img id="oldImg" src="{{ asset('storage/' . $dish->image) }}" alt="Old Image"
                             class="img-fluid mb-2 square-image square-image-edit-restaurant">
                     @endif
-                    <img id="imagePreview" class="hide mb-3 square-image square-image-edit-restaurant" src="" alt="New Image Preview">
+                    <img id="imagePreview" class="hide mb-3 square-image square-image-edit-restaurant" src=""
+                        alt="New Image Preview">
                 </div>
             </div>
             {{-- old and new preview image --}}
 
             {{-- btn-remove --}}
             <div class="flex-center mb-2">
-                <button id="btnDelete" class="btn btn-danger hide mt-3"
-                    onclick="removeImage(event)">Rimuovi</button>
+                <button id="btnDelete" class="btn btn-danger hide mt-3" onclick="removeImage(event)">Rimuovi</button>
             </div>
             {{-- /btn-remove --}}
 

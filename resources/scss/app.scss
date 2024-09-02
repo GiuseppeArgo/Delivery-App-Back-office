@@ -24,22 +24,22 @@
     position:absolute;
     text-align: center;
     z-index: 10;
-    top: 5%;
-    right: 5%;
+    top: 0%;
+    left: 0%;
     border: 0;
-    background-color: $white;
-    width: 15px;
-    height: 15px;
-    line-height: 15px;
-    border-radius: 50%;
+    background-color: rgba(224, 0, 23,0.9);
+    color: white;
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
 }
 
 #btnDelete:hover{
     cursor: pointer;
 }
 
-#btnDelete i{
-    font-size: 10px;
+#btnDelete span{
+
 }
 
 
