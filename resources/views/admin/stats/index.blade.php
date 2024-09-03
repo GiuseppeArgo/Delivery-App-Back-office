@@ -1,74 +1,80 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="d-flex justify-content-center mt-5 gap-2">
-        {{-- btn home --}}
-        <a class="btn btn-primary" href="{{ route('admin.orders.index') }}">
-            <i class="fa-solid fa-circle-arrow-left"></i>
-            Indietro
-        </a>
-        {{-- btn home --}}
+<div class="cotainter">
+    <div class="row mt-3 mb-5">
+        <div class="col-12 col-sm-12 col-md-6 flex-center gap-2">
+            {{-- btn home --}}
+            <a class="btn btn-primary btn-form-action rounded-5 px-2 py-1" href="{{ route('admin.orders.index') }}">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+            {{-- btn home --}}
+
+            {{-- title --}}
+            <h1 class="text-center p-0 m-0">Statistiche degli Ordini</h1>
+            {{-- /title --}}
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 flex-center">
+            <form method="GET" action="{{ route('admin.stats.index') }}" class="d-flex gap-2">
+                <div>
+                    <label for="year">Anno:</label>
+                    <input type="number" id="year" name="year" value="{{ $year }}"
+                        class="form-control">
+                </div>
+                <div>
+                    <label for="month">Mese:</label>
+                    <input type="number" id="month" name="month" value="{{ $month }}"
+                        class="form-control">
+                </div>
+                <div class="d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary">Filtra</button>
+                </div>
+            </form>
+        </div>
+
     </div>
+</div>
 
     <div class="container-fluid">
-        <div class="row justify-content-center">
-            {{-- header --}}
-            <div class="d-flex gap-2 justify-content-center align-items-center mt-5">
-                <div class="d-flex flex-column justify-content-center align-items-center gap-2 mb-2">
-                    <h1 class="text-center p-0">Statistiche degli Ordini</h1>
-                </div>
-            </div>
-            {{-- /header --}}
+        <div class="row">
 
-            <div class="d-flex justify-content-center mb-5">
-                <form method="GET" action="{{ route('admin.stats.index') }}" class="d-flex gap-2">
-                    <div>
-                        <label for="year">Anno:</label>
-                        <input type="number" id="year" name="year" value="{{ $year }}" class="form-control">
+
+            <div class="container">
+                <div class="row justify-content-center">
+                    {{-- Orders graph --}}
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 chart-section mb-5">
+                        <h3 class="text-left">Ordini per giornata</h3>
+                        <p class="text-left">Totale numero ordini del mese selezionato: {{ $totalOrders }}</p>
+                        <div class="select-container">
+                            <select id="chart-order" class="my_select rounded-3 px-3" >
+                                <option value="line">Linee</option>
+                                <option value="bar">Barre</option>
+                            </select>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="orderChart"></canvas>
+                        </div>
                     </div>
-                    <div>
-                        <label for="month">Mese:</label>
-                        <input type="number" id="month" name="month" value="{{ $month }}" class="form-control">
+                    {{-- /Orders graph --}}
+                    {{-- Price graph --}}
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 chart-section">
+                        <h3 class="text-left">Guadagni della giornata</h3>
+                        <p class="text-left">Totale guadagnato nel mese selezionato: {{ number_format($totalEarnings, 2) }} €</p>
+                        <div class="select-container">
+                            <select id="chart-price" class="rounded-3 px-3">
+                                <option value="bar">Barre</option>
+                                <option value="line">Linee</option>
+                            </select>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="PriceChart"></canvas>
+                        </div>
                     </div>
-                    <div class="d-flex align-items-end">
-                        <button type="submit" class="btn btn-primary">Filtra</button>
-                    </div>
-                </form>
+                    {{-- /Price graph --}}
+                </div>
             </div>
 
-            {{-- Orders graph --}}
-            <div class="chart-section d-flex flex-column align-items-center mb-5">
-                <h3 class="text-left">Ordini per giornata</h3>
-                <p class="text-left">Totale numero ordini del mese selezionato: {{ $totalOrders }}</p>
-                <div class="select-container">
-                    <select class="my_select" id="orderChartTypeSelector">
-                        <option value="line">Linee</option>
-                        <option value="bar">Barre</option>
-                    </select>
-                    <i class="fas fa-chevron-down select-icon"></i>
-                </div>
-                <div class="chart-container">
-                    <canvas id="orderChart"></canvas>
-                </div>
-            </div>
-            {{-- /Orders graph --}}
-
-            {{-- Price graph --}}
-            <div class="chart-section d-flex flex-column align-items-center">
-                <h3 class="text-left">Guadagni della giornata</h3>
-                <p class="text-left">Totale guadagnato nel mese selezionato: {{ number_format($totalEarnings, 2) }} €</p>
-                <div class="select-container">
-                    <select id="chartTypeSelector">
-                        <option value="bar">Barre</option>
-                        <option value="line">Linee</option>
-                    </select>
-                    <i class="fas fa-chevron-down select-icon"></i>
-                </div>
-                <div class="chart-container">
-                    <canvas id="PriceChart"></canvas>
-                </div>
-            </div>
-            {{-- /Price graph --}}
         </div>
     </div>
 
@@ -115,7 +121,7 @@
                 options: options
             });
 
-            document.getElementById('orderChartTypeSelector').addEventListener('change', (event) => {
+            document.getElementById('chart-order').addEventListener('change', (event) => {
                 const selectedType = event.target.value;
                 orderChart.destroy();
                 if (selectedType === 'line') {
@@ -186,7 +192,7 @@
                 options: options
             });
 
-            document.getElementById('chartTypeSelector').addEventListener('change', (event) => {
+            document.getElementById('chart-price').addEventListener('change', (event) => {
                 const selectedType = event.target.value;
                 priceChart.destroy();
                 if (selectedType === 'line') {
@@ -213,7 +219,7 @@
     </script>
 
     <style>
-        .chart-section {
+        /* .chart-section {
             width: 100%;
             max-width: 800px;
         }
@@ -288,7 +294,6 @@
             width: 100%;
             text-align: left;
             margin-bottom: 10px;
-        }
+        } */
     </style>
 @endsection
-

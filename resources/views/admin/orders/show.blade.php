@@ -3,7 +3,7 @@
 @section('content')
 
 {{-- title --}}
-    <h1 class="mb-4 mt.5 text-center">Ordini</h1>
+    <h1 class="mt-5 mb-4 text-center">Ordini</h1>
 {{-- /title --}}
 
 {{-- container --}}
@@ -12,7 +12,7 @@
         <form action="{{ route('admin.orders.index') }}" method="GET">
             @csrf
             <input type="text" class="hide" name="restaurant_id" value="{{ $orders['restaurant_id'] }}">
-            <button type="submit" class="btn btn-primary btn-table flex-center rounded-5 btn-menu">
+            <button type="submit" class="btn btn-primary btn-action-form btn-left flex-center">
                 <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
             </button>
         </form>

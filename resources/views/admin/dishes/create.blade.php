@@ -8,10 +8,10 @@
 {{-- /title --}}
 
 {{-- container --}}
-<div class="form-container p-5">
+<div class="form-container pt-5 pb-2 ps-2 pe-2">
 
         {{-- btn-back-menu --}}
-        <a href="{{ route('admin.dishes.index') }}" class="btn btn-primary btn-table flex-center rounded-5 btn-menu">
+        <a href="{{ route('admin.dishes.index') }}" class="btn btn-primary btn-action-form btn-left flex-center rounded-5">
             <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
         </a>
         {{-- / btn-back-menu --}}
@@ -81,17 +81,10 @@
                     <div class="col-12 col-md-5 mb-3">
                         <label for="image" class="form-label">Immagine <span class="asterisco">*</span>
 
-                            {{-- error message --}}
-                            @error('image')
-                                <span class="text-danger">{{ $errors->first('image') }}</span>
-                            @enderror
-                            {{-- /error message --}}
 
                         </label>
 
-                        <span id="errorImage" class="text-danger"></span>
-                        {{-- <input type="file" name="image" id="image" aria-describedby="image"
-                            class="form-control @error('image') is-invalid @enderror" required> --}}
+
 
                         <!-- customize button -->
                         <button type="button" class="custom-file-upload btn btn-primary d-block">Selziona</button>
@@ -99,9 +92,15 @@
                         <!--  hide Input file -->
                         <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
                             id="image" style="display:none;">
+                        </div>
+                        {{-- error message --}}
+                        @error('image')
+                            <span class="text-danger">{{ $errors->first('image') }}</span>
+                        @enderror
+                        {{-- /error message --}}
+                        <span id="errorImage" class="text-danger"></span>
 
-                    </div>
-                    {{-- /input file image --}}
+                        {{-- /input file image --}}
 
                 </div>
             </div>
@@ -109,8 +108,8 @@
 
             <div class="m-auto mt-3 square-image-container">
                 {{-- img preview --}}
-                <div class="mt-2 card-img ">
-                    <img id="imagePreview" class="from-control hide mb-3 square-image square-image-edit-restaurant" src="" alt="new-image">
+                <div class="mt-2 card-img w-100 p-0 m-0">
+                    <img id="imagePreview" class="from-control hide square-image square-image-edit-restaurant  mb-2 w-100" src="" alt="new-image">
                 </div>
                 {{-- /img preview --}}
 

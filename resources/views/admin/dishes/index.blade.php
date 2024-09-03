@@ -19,7 +19,7 @@
 
             <div class="mt-5 mb-2  text-center ">
                 <h1 class="p-0 d-block">
-                    Menu del ristorante
+                    Menù
                 </h1>
 
                 <div class="flex-center gap-2">
@@ -115,7 +115,7 @@
                                         </a>
                                         <a class="btn btn-outline-primary p-1 btn-table d-none d-sm-inline-block"
                                             href="{{ route('admin.dishes.edit', ['dish' => $dish->slug]) }}">
-                                            <i class="fa-solid fa-pen"></i>
+                                            <i class="fa-solid fa-pen-to-square"></i>
                                         </a>
                                     </td>
 
@@ -129,7 +129,7 @@
                 {{-- /table --}}
             @else
                 <div class="form-container p-5 text-center">
-                    <p class="fs-3"> Non ci sono ancora piatti nel tuo menu</p>
+                    <p class="nothing"> Non ci sono ancora piatti nel tuo menù</p>
                 </div>
             @endif
         </div>

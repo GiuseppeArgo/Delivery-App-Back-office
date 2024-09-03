@@ -37,15 +37,20 @@ class StoreDishRequest extends FormRequest
     {
         return
         [
-            'required'          => 'Il campo :attribute è vuoto',
-            'min'               => 'Il campo :attribute deve contenere almeno :min caratteri',
-            'max'               => 'il campo :attribute deve contenere massimo :max caratteri',
-            'unique'            => 'non si possono avere due :attribute uguali',
-            'image.image'       => 'il campo :attribute deve essere una foto',
-            'image.mimes'       => 'formato consentito jpg,jpeg o png',
-            'image.max'         => 'dimensione massima 2 mb',
-            'price.min'         => 'prezzo minimo sindacale non inferiore a :min euro',
-            'price.max'         => 'prezzo massimo consentito non superiore a :max euro',
+            'name.required'         => 'Il campo nome è vuoto',
+            'name.min'              => 'Deve contenere almeno :min caratteri',
+            'name.max'              => 'Può contenere massimo :max caratteri',
+            'image.required'        => 'Seleziona un immagine',
+            'image.image'           => 'Devi selezionare un immagine',
+            'image.mimes'           => 'Formato consentiti: jpg,jpeg o png',
+            'image.max'             => 'Dimensione massima 2 mb',
+            'price.required'        => 'Inserisci il prezzo',
+            'price.min'             => 'prezzo minimo sindacale non inferiore a :min euro',
+            'price.max'             => 'prezzo massimo consentito non superiore a :max euro',
+            'required'              => 'Il campo :attribute è vuoto',
+            'description.required'  => 'Inserisci una descrizione',
+            'description.min'       => 'Deve contenere almeno :min caratteri',
+            'description.max'       => 'Puo contenere massimo :max caratteri',
         ];
     }
 }

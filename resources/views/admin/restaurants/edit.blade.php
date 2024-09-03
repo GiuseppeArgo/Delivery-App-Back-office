@@ -1,32 +1,29 @@
 @extends('layouts.admin')
 
 @section('content')
-    {{-- header --}}
-    <div class="mt-5 mb-4">
-        <h1 class="text-center">Modifica i tuoi dati</h1>
-    </div>
-    {{-- header --}}
+    {{-- title --}}
+    <h1 class="text-center mt-5 mb-4">Modifica i tuoi dati</h1>
+    {{-- title --}}
 
     {{-- container  --}}
-    <div class="form-container pt-5 pb-5 ps-2 pe-2">
+    <div class="form-container pt-5 pb-2 ps-2 pe-2">
 
         {{-- btn-home --}}
-        <div class="btn-back">
-            <a href="{{ route('admin.restaurants.index') }}">
-                <i class="fa-solid fa-circle-arrow-left"></i>
+            <a href="{{ route('admin.restaurants.index') }}" class="btn btn-primary btn-action-form btn-left flex-center rounded-5">
+                <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
             </a>
-        </div>
         {{-- /btn-home --}}
 
 
         {{-- form --}}
-        <form class="d-flex flex-column" action="{{ route('admin.restaurants.update', ['restaurant' => $restaurant->slug]) }}"
-            method="POST" enctype="multipart/form-data" class="w-100">
+        <form class="d-flex flex-column w-100"
+            action="{{ route('admin.restaurants.update', ['restaurant' => $restaurant->slug]) }}" method="POST"
+            enctype="multipart/form-data">
             @csrf
             @method('put')
 
 
-            <div class="container mb-3">
+            <div class="container mt-3 mb-3">
                 <div class="row">
 
                     {{-- title --}}
@@ -40,9 +37,9 @@
                             {{-- /error message --}}
 
                         </label>
-                        <input class="form-control @error('name') is-invalid @enderror" type="text" id="name" name="name"
-                            minlength="3" maxlength="20" value="{{ old('name', $restaurant->name) }}" placeholder="es. Bar Portici"
-                            required>
+                        <input class="form-control @error('name') is-invalid @enderror" type="text" id="name"
+                            name="name" minlength="3" maxlength="20" value="{{ old('name', $restaurant->name) }}"
+                            placeholder="es. Bar Portici" required>
                     </div>
                     {{-- /title --}}
 
@@ -85,54 +82,51 @@
 
             {{-- Tiypologies --}}
             <div class="container">
-            <span class="label">
-                Tipologie
-                <span class="asterisco">*</span>
-            </span>
-
-            {{-- errors typologies --}}
-            @if ($errors->first('tipologies'))
-                @error('tipologies')
-                    <span class="text-danger"> {{ $errors->first('tipologies') }} </span>
-                @enderror
-            @else
-                <span id="error-message" class="text-danger" style="display:none;">
-                    Non puoi inserire piu di 2 tipologie.
+                <span class="label">
+                    Tipologie
+                    <span class="asterisco">*</span>
                 </span>
-            @endif
-            {{-- errors typologies --}}
 
-            <div class="container mb-4">
-                <div class="row justify-content-center align-items-center" role="group" aria-label="Basic checkbox toggle button group">
-                    @foreach ($listTypes as $curType)
-                        <div
-                            class="col-6 col-sm-4 col-md-3 col-lg-3 p-1 rounded-0 btn-group flex flex-wrap justify-content-center align-items-center">
-                            <input type="checkbox" class="btn-check" id="tech-{{ $curType->id }}" name="tipologies[]"
-                                value="{{ $curType->id }}" @checked(in_array($curType->id, old('tipologies', $restaurant->types->pluck('id')->toArray())))>
-                            <label class="btn btn-outline-primary"
-                                for="tech-{{ $curType->id }}">{{ $curType->name }}</label>
-                        </div>
-                    @endforeach
+                {{-- errors typologies --}}
+                @if ($errors->first('tipologies'))
+                    @error('tipologies')
+                        <span class="text-danger"> {{ $errors->first('tipologies') }} </span>
+                    @enderror
+                @else
+                    <span id="error-message" class="text-danger" style="display:none;">
+                        Non puoi inserire piu di 2 tipologie.
+                    </span>
+                @endif
+                {{-- errors typologies --}}
+
+                <div class="container mb-4">
+                    <div class="row justify-content-center align-items-center" role="group"
+                        aria-label="Basic checkbox toggle button group">
+                        @foreach ($listTypes as $curType)
+                            <div
+                                class="col-6 col-sm-4 col-md-3 col-lg-3 p-1 rounded-0 btn-group flex flex-wrap justify-content-center align-items-center">
+                                <input type="checkbox" class="btn-check" id="tech-{{ $curType->id }}" name="tipologies[]"
+                                    value="{{ $curType->id }}" @checked(in_array($curType->id, old('tipologies', $restaurant->types->pluck('id')->toArray())))>
+                                <label class="btn btn-outline-primary"
+                                    for="tech-{{ $curType->id }}">{{ $curType->name }}</label>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
-        </div>
             {{-- /Tiypologies --}}
+
 
 
             {{-- input file image --}}
             <div class="container mb-3">
+
                 <label for="image"> Immagine <span class="asterisco">*</span></label>
-                <span id="errorImage" class="text-danger"></span>
                 {{-- <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
                     id="image"> --}}
 
                 <!-- customize button -->
                 <button type="button" class="custom-file-upload btn btn-primary d-block ">Scegli file</button>
-
-                <!--  hide Input file -->
-                <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
-                    id="image" style="display:none;">
-
                 {{-- error message --}}
                 @if (!empty($restaurant->image))
                     @error('image')
@@ -140,6 +134,11 @@
                     @enderror
                 @endif
                 {{-- /error message --}}
+                <span id="errorImage" class="text-danger"></span><br>
+                <!--  hide Input file -->
+                <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
+                    id="image" style="display:none;">
+
 
             </div>
             {{-- /input file image --}}
@@ -180,9 +179,11 @@
         </form>
         {{-- form --}}
         <div class="mt-5">
-            <span class="asterisco">*</span>
+            <span class="asterisco">
+                *
+            </span>
             <span class="field-required">
-                ⁠questi campi sono obbligatori
+                questi campi sono obbligatori
             </span>
         </div>
     </div>

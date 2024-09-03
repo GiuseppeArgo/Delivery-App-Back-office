@@ -1,55 +1,59 @@
 @extends('layouts.admin')
 
 @section('content')
-    {{-- container  --}}
-    <div class="form-container p-5">
+    {{-- title --}}
+    <h1 class="text-center mt-5 mb-4">Crea Il tuo ristorante</h1>
+    {{-- /title --}}
 
-        {{-- title --}}
-        <h1 class="text-center">Crea Il tuo ristorante</h1>
-        {{-- /title --}}
+    {{-- container  --}}
+    <div class="form-container pt-5 pb-2 ps-2 pe-2">
 
         {{-- form --}}
-        <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data">
+        <form class="d-flex flex-column" action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
-            {{-- name --}}
-            <div class="mb-3">
-                <label for="name" class="form-label">Nome ristorante <span class="asterisco">*</span>
+            <div class="container">
+                <div class="row mb-4">
+                    {{-- name --}}
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        <label for="name" class="form-label">Nome ristorante <span class="asterisco">*</span>
 
-                    {{-- error message --}}
-                    @error('name')
-                        <span class="text-danger"> {{ $errors->first('name') }} </span>
-                    @enderror
-                    {{-- /error message --}}
+                            {{-- error message --}}
+                            @error('name')
+                                <span class="text-danger"> {{ $errors->first('name') }} </span>
+                            @enderror
+                            {{-- /error message --}}
 
-                </label>
-                <input value="{{ old('name') }}" type="text" minlength="3" maxlength="20" name="name"
-                    class="form-control @error('name') is-invalid @enderror" placeholder="es. Da Mario" id="name"
-                    aria-describedby="name_restaurant" required>
+                        </label>
+                        <input value="{{ old('name') }}" type="text" minlength="3" maxlength="20" name="name"
+                            class="form-control @error('name') is-invalid @enderror" placeholder="es. Da Mario"
+                            id="name" aria-describedby="name_restaurant" required>
+                    </div>
+                    {{-- /name --}}
+
+
+                    {{-- address --}}
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        <label for="address" class="form-label">Indirizzo <span class="asterisco">*</span>
+
+                            {{-- error message --}}
+                            @error('address')
+                                <span class="text-danger"> {{ $errors->first('address') }} </span>
+                            @enderror
+                            {{-- /error message --}}
+
+                        </label>
+                        <input value="{{ old('address') }}" type="text" name="address" minlength="3" maxlength="20"
+                            class="form-control @error('address') is-invalid @enderror" id="address"
+                            aria-describedby="address" required placeholder="es. Via Delle Alpi 15">
+                    </div>
+                    {{-- address --}}
+                </div>
             </div>
-            {{-- /name --}}
-
-
-            {{-- address --}}
-            <div class="mb-3">
-                <label for="address" class="form-label">Indirizzo <span class="asterisco">*</span>
-
-                    {{-- error message --}}
-                    @error('address')
-                        <span class="text-danger"> {{ $errors->first('address') }} </span>
-                    @enderror
-                    {{-- /error message --}}
-
-                </label>
-                <input value="{{ old('address') }}" type="text" name="address" minlength="3" maxlength="20"
-                    class="form-control @error('address') is-invalid @enderror" id="address" aria-describedby="address"
-                    required placeholder="es. Via Delle Alpi 15">
-            </div>
-            {{-- address --}}
 
 
             {{-- Description --}}
-            <div class="mb-3">
+            <div class="container mb-4">
                 <label for="description" class="form-label">Descrizione <span class="asterisco">*</span>
 
                     {{-- error message --}}
@@ -67,83 +71,95 @@
 
 
             {{-- Typologies --}}
-            <span>Tipologie <span class="asterisco">*</span> </span>
-
-            {{-- errors typologies --}}
-            @if (!$errors->first('tipologies'))
-                <span id="error-message" class="text-danger" style="display:none;">
-                    {{-- dynamic message not 0 and not more 2 typologies. --}}
+            <div class="container">
+                <span class="label">
+                    Tipologie
+                    <span class="asterisco">*</span>
                 </span>
-            @else
-                @error('tipologies')
-                    <span class="text-danger"> {{ $errors->first('tipologies') }} </span>
-                @enderror
-            @endif
-            {{-- errors typologies --}}
 
-            <div class="container mb-4">
-                <div class="row" role="group" aria-label="Basic checkbox toggle button group">
-                    @foreach ($listTypes as $curType)
-                        <div class="col-sm-12 col-md-6 col-lg-4 btn-group flex flex-wrap justify-content-center align-items-center mt-3">
-                            <input type="checkbox" class="btn-check" id="tech-{{ $curType->id }}" name="tipologies[]"
-                                value="{{ $curType->id }}" @checked(in_array($curType->id, old('tipologies', [])))>
-                            <label class="btn btn-outline-primary"
-                                for="tech-{{ $curType->id }}">{{ $curType->name }}</label>
-                        </div>
-                    @endforeach
+                {{-- errors typologies --}}
+                @if (!$errors->first('tipologies'))
+                    <span id="error-message" class="text-danger" style="display:none;">
+                        {{-- dynamic message not 0 and not more 2 typologies. --}}
+                    </span>
+                @else
+                    @error('tipologies')
+                        <span class="text-danger"> {{ $errors->first('tipologies') }} </span>
+                    @enderror
+                @endif
+                {{-- errors typologies --}}
+
+                <div class="container mb-4">
+                    <div class="row justify-content-center align-items-center" role="group"
+                        aria-label="Basic checkbox toggle button group">
+                        @foreach ($listTypes as $curType)
+                            <div
+                                class="col-6 col-sm-4 col-md-3 col-lg-3 p-1 rounded-0 btn-group flex flex-wrap justify-content-center align-items-center">
+                                <input type="checkbox" class="btn-check" id="tech-{{ $curType->id }}" name="tipologies[]"
+                                    value="{{ $curType->id }}" @checked(in_array($curType->id, old('tipologies', [])))>
+                                <label class="btn btn-outline-primary"
+                                    for="tech-{{ $curType->id }}">{{ $curType->name }}</label>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
             {{-- Typologies --}}
 
+            <div class="container">
+                <div class="row">
+                    {{-- P.Iva --}}
+                    <div class="col-12 col-sm-8 col-md-8 mb-4">
+                        <label for="p_iva" class="form-label">Partita Iva <span class="asterisco">*</span>
 
-            {{-- P.Iva --}}
-            <div class="mb-3">
-                <label for="p_iva" class="form-label">Partita Iva <span class="asterisco">*</span>
+                            {{-- error message --}}
+                            @error('p_iva')
+                                <span class="text-danger"> {{ $errors->first('p_iva') }} </span>
+                            @enderror
+                            {{-- /error message --}}
 
-                    {{-- error message --}}
-                    @error('p_iva')
-                        <span class="text-danger"> {{ $errors->first('p_iva') }} </span>
-                    @enderror
-                    {{-- /error message --}}
-
-                </label>
-                <input value="{{ old('p_iva') }}" type="text" name="p_iva" pattern="^\d{11}$" maxlength="11"
-                    placeholder="es. 12345678901 -> 11 numeri" class="form-control @error('p_iva')
+                        </label>
+                        <input value="{{ old('p_iva') }}" type="text" name="p_iva" pattern="^\d{11}$" maxlength="11"
+                            placeholder="Es. 12343456543" class="form-control @error('p_iva')
 is-invalid
 @enderror"
-                    id="p_iva" aria-describedby="p_iva" required>
+                            id="p_iva" aria-describedby="p_iva" required>
+                    </div>
+                    {{-- P.Iva --}}
+
+
+                    {{-- input file image --}}
+                    <div class="col-12 col-sm-4 col-md-4 mb-4">
+                        <label for="image" class="form-label">Immagine <span class="asterisco">*</span>
+
+                            {{-- error image --}}
+                            @error('image')
+                                <span class="text-danger">{{ $errors->first('image') }}</span>
+                            @enderror
+                            {{-- /error image --}}
+
+                        </label>
+                        <span id="errorImage" class="text-danger"></span>
+
+                        <!-- customize button -->
+                        <button type="button" class="custom-file-upload btn btn-primary d-block">Scegli file</button>
+
+                        <!--  hide Input file -->
+                        <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
+                            id="image" style="display:none;">
+                    </div>
+                    {{-- /input file image --}}
+                </div>
             </div>
-            {{-- P.Iva --}}
 
-
-            {{-- input file image --}}
-            <div class="mb-3">
-                <label for="image" class="form-label">Immagine <span class="asterisco">*</span>
-
-                    {{-- error image --}}
-                    @error('image')
-                        <span class="text-danger">{{ $errors->first('image') }}</span>
-                    @enderror
-                    {{-- /error image --}}
-
-                </label>
-                <span id="errorImage" class="text-danger"></span>
-
-                <!-- customize button -->
-                <button type="button" class="custom-file-upload btn btn-primary d-block">Scegli file</button>
-
-                <!--  hide Input file -->
-                <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
-                    id="image" style="display:none;">
-            </div>
-            {{-- /input file image --}}
 
 
             {{-- image --}}
             <div class="container-preview m-auto mt-3 mb-3 square-image-container">
                 {{-- img preview --}}
                 <div class="mt-2 card-img">
-                    <img id="imagePreview" class="hide square-image square-image-edit-restaurant" src="" alt="new-image">
+                    <img id="imagePreview" class="hide square-image square-image-edit-restaurant" src=""
+                        alt="new-image">
                 </div>
                 {{-- /img preview --}}
 
@@ -159,7 +175,10 @@ is-invalid
         </form>
         {{-- /form --}}
         <div class="mt-5">
-            <span class="asterisco">*</span> ⁠questi campi sono obbligatori
+            <span class="asterisco">*</span>
+            <span class="field-required">
+                questi campi sono obbligatori
+            </span>
         </div>
     </div>
     {{-- /container  --}}
@@ -243,26 +262,27 @@ is-invalid
 
 
         // control typologies for create and edit restaurants. max 2 not 0
-const checkboxes = document.querySelectorAll('input[type=checkbox][name="tipologies[]"]');
-const errorMessage = document.getElementById('error-message');
+        const checkboxes = document.querySelectorAll('input[type=checkbox][name="tipologies[]"]');
+        const errorMessage = document.getElementById('error-message');
 
-checkboxes.forEach(function(checkbox) {
-    checkbox.addEventListener('click', function(e) {
-        var selectedCount = Array.from(document.querySelectorAll('input[name="tipologies[]"]:checked')).length;
-        if (selectedCount > 2) {
-            e.preventDefault();
-            errorMessage.style.display = 'inline-block';
-            errorMessage.innerHTML = "puoi selezionare al massimo 2 tipologie";
-            Array.from(checkboxes).slice(-1)[0].click();
-        }else if(selectedCount === 0) {
-            errorMessage.style.display = 'inline-block';
-            errorMessage.innerHTML = "devi selezionare almeno una tipologia";
-        } else{
-            errorMessage.style.display = 'none';
-        }
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('click', function(e) {
+                var selectedCount = Array.from(document.querySelectorAll(
+                    'input[name="tipologies[]"]:checked')).length;
+                if (selectedCount > 2) {
+                    e.preventDefault();
+                    errorMessage.style.display = 'inline-block';
+                    errorMessage.innerHTML = "puoi selezionare al massimo 2 tipologie";
+                    Array.from(checkboxes).slice(-1)[0].click();
+                } else if (selectedCount === 0) {
+                    errorMessage.style.display = 'inline-block';
+                    errorMessage.innerHTML = "devi selezionare almeno una tipologia";
+                } else {
+                    errorMessage.style.display = 'none';
+                }
 
-    });
-});
-// control typologies for create and edit restaurants. max 2 not 0
+            });
+        });
+        // control typologies for create and edit restaurants. max 2 not 0
     </script>
 @endsection

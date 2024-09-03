@@ -38,15 +38,24 @@ class StoreRestaurantRequest extends FormRequest
     {
         return
         [
-            'required'          => 'Il campo è obbligatorio',
-            'min'               => 'Deve contenere almeno :min caratteri',
-            'max'               => 'Deve contenere massimo :max caratteri',
-            'unique'            => 'Il valore inserito è gia esistente',
-            'image.image'       => 'Deve essere una foto',
-            'image.mimes'       => 'formato consentito jpg,jpeg o png',
-            'image.max'         => 'dimensione massima 2 mb',
-            'p_iva.min'         => 'deve avere 11 caratteri numerici',
-            'p_iva.max'         => 'deve avere 11 caratteri numerici',
+            'name.required'         => 'Il campo nome è vuoto',
+            'name.min'              => 'Deve contenere almeno :min caratteri',
+            'name.max'              => 'Può contenere massimo :max caratteri',
+            'name.unique'           => 'Hai gia un ristorante con questo nome',
+            'address.required'      => 'Inserisci l\'indirizzo del ristorante',
+            'address.min'           => 'Deve essere di almeno :min caratteri',
+            'address.max'           => 'Puo essere massimo di :max caratteri',
+            'image.required'        => 'Seleziona un immagine',
+            'image.image'           => 'Devi selezionare un immagine',
+            'image.mimes'           => 'Formato consentiti: jpg,jpeg o png',
+            'image.max'             => 'Dimensione massima 2 mb',
+            'description.required'  => 'Inserisci una descrizione',
+            'description.min'       => 'Deve contenere almeno :min caratteri',
+            'description.max'       => 'Puo contenere massimo :max caratteri',
+            'p_iva.required'        => 'Il campo P.iva non può essere vuoto',
+            'p_iva.min'             => 'Deve contenere 11 caratteri numerici',
+            'p_iva.max'             => 'Deve contenere 11 caratteri numerici',
+            'tipologies.required'   => 'Selezione almeno una tipologia',
 
         ];
     }

@@ -12,11 +12,11 @@
 <div class="form-container container p-5">
 
 
-        <a href="{{ route('admin.dishes.index') }}" class="btn btn-primary btn-table flex-center rounded-5 btn-menu">
+        <a href="{{ route('admin.dishes.index') }}" class="btn btn-primary btn-action-form btn-left flex-center">
             <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
         </a>
-        <a class="btn-edit-restaurant" href="{{ route('admin.dishes.edit', ['dish' => $dish->slug]) }}">
-            <i class="fa-solid fa-pen"></i>
+        <a class="btn-action-form btn-right" href="{{ route('admin.dishes.edit', ['dish' => $dish->slug]) }}">
+            <i class="fa-solid fa-pen-to-square"></i>
         </a>
 
         <div class="row justify-content-center align-items-center">

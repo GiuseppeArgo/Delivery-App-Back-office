@@ -21,6 +21,6 @@ class MaxTipologies implements Rule
 
     public function message()
     {
-        return 'Hai selezionato troppi tipi. Seleziona al massimo 2.';
+        return 'Hai selezionato troppe tipologie.Non piu di 2.';
     }
 }

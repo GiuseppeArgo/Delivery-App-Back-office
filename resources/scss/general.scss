@@ -40,15 +40,8 @@ img{
     border:2px solid $gray;
 }
 
-// dish index
 
-// dish index
-
-
-.btn-edit-restaurant{
-    position: absolute;
-    top: 3%;
-    right: 2%;
+.btn-action-form{
     width: 30px;
     height: 30px;
     line-height: 30px;
@@ -58,27 +51,16 @@ img{
     color: $white;
 }
 
-.btn-stats{
-    top: 2%;
-}
-
-.btn-back{
+.btn-right{
     position: absolute;
-    top: 2%;
-    left: 2%;
-    border-radius: 50%;
+    top: 10px;
+    right: 10px;
 }
 
-.btn-back i,
-.btn-back-menu{
-    color: $blue;
-    font-size: 30px;
-}
-
-.btn-menu{
+.btn-left{
     position: absolute;
-    top: 3%;
-    left: 2%;
+    top: 10px;
+    left: 10px;
 }
 
 form{
@@ -156,10 +138,6 @@ form{
 }
 
 
-td{
-    font-size: 12px;
-}
-
 .btn{
     font-size: 13px;
 }
@@ -191,8 +169,6 @@ td{
     width: 30px;
     height: 30px;
 }
-
-
 
 
 

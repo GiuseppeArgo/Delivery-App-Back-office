@@ -27,14 +27,14 @@
 
 
                 {{-- btn edit --}}
-                <div class="btn-edit-restaurant">
+                <div class="btn-action-form btn-right">
                     <a href="{{ route('admin.restaurants.edit', ['restaurant' => $curRestaurant->slug]) }}">
-                        <i class="text-white  fa-solid fa-pen"></i>
+                        <i class="text-white fa-solid fa-pen-to-square"></i>
                     </a>
                 </div>
                 {{-- /btn edit --}}
 
-                <div class="container">
+                <div class="container pt-5">
 
                     {{-- container main --}}
                     <div class="row justify-content-center align-items-center">
@@ -49,7 +49,7 @@
 
                         {{-- restaurant text --}}
                         <div
-                            class="col-sm-12 col-md-12 col-lg-6 text-lg-start p-4 d-flex flex-column gap-2 align-items-center restaurants-details">
+                            class="col-sm-12 col-md-12 col-lg-6 text-lg-start pt-3 d-flex flex-column gap-2 align-items-center restaurants-details">
 
                             {{-- name --}}
                             <div>
@@ -111,7 +111,7 @@
         </div>
     @else
         <div class="form-container flex-center flex-column p-5">
-            <p class="fs-3">Nessun ristorante registrato. Aggiungine uno.</p>
+            <p class="nothing text-center">Nessun ristorante registrato. Aggiungine uno.</p>
             <a class="btn btn-primary" href="{{ route('admin.restaurants.create') }}">
                 <i class="fa-solid fa-plus"></i> Nuovo ristorante
             </a>

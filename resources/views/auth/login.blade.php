@@ -4,8 +4,9 @@
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <h1 class="text-center mt-5 mb-4"> Pagina Login</h1>
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+
 
                 {{-- form --}}
                 <div class="card-body">

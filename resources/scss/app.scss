@@ -38,10 +38,6 @@
     cursor: pointer;
 }
 
-#btnDelete span{
-
-}
-
 
 // .overlay-img{
 //     border: 1px solid black;
@@ -75,12 +71,16 @@
 .asterisco{
     color: red;
 }
-.field-required,.asterisco,label,.label,.btn-label{
-    font-size: clamp(8px, 2vw, 18px);
+.field-required,.asterisco,label,.label,.btn-label,span{
+    font-size: clamp(8px, 2vw, 18px) !important;
 }
 
 h1{
     font-size: clamp(30px, 3vw, 40px);
+}
+
+.nothing{
+    font-size: clamp(15px, 3vw, 30px);
 }
 
 td,th{
@@ -89,6 +89,11 @@ td,th{
 
 .restaurants-details{
     font-size: clamp(14px, 2vw, 20px);
+}
+
+input,
+textarea{
+    font-size: clamp(10px, 2vw, 16px) !important;
 }
 
 .padding-button {

@@ -6,10 +6,10 @@
     {{-- /title --}}
 
     {{-- container --}}
-    <div class="form-container p-5">
+    <div class="form-container pt-5 pb-3 ps-2 pe-2">
 
         {{-- btn-back-menu --}}
-        <a href="{{ route('admin.dishes.index') }}" class="btn btn-primary btn-table flex-center rounded-5 btn-menu">
+        <a href="{{ route('admin.dishes.index') }}" class="btn btn-primary btn-action-form btn-left flex-center">
             <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
         </a>
         {{-- btn-back-menu --}}
@@ -26,8 +26,9 @@
 
             <div class="container">
                 <div class="row">
+
                     {{-- Name --}}
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-3">
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mb-3">
                         <label for="name" class="form-label mt-4">Nome piatto <span class="asterisco">*</span>
                             {{-- error message --}}
                             @error('name')
@@ -43,13 +44,13 @@
                         </label>
 
                         <input type="text" id="name" name="name"
-                            class="form-control @error('name') is-invalid @enderror" minlength="3" maxlength="20"
+                            class="form-control @error('name') is-invalid @enderror" minlength="3" maxlength="30"
                             value="{{ old('name', $dish->name) }}" placeholder="es. Carbonara" required>
                     </div>
                     {{-- /Name --}}
 
                     {{-- Availability --}}
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-3 align-self-end">
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mb-3 align-self-end">
                         <label class="form-label">Disponibilità <span class="asterisco">*</span>
 
                             {{-- errors --}}
@@ -91,7 +92,7 @@
             <div class="container">
                 <div class="row">
                     {{-- Price --}}
-                    <div class="col-6 mb-3">
+                    <div class="col-12 col-sm-8 mb-3">
                         <label for="price" class="form-label">Prezzo <span class="asterisco">*</span>
 
                             {{-- error message --}}
@@ -108,7 +109,7 @@
                     {{-- /Price --}}
 
                     {{-- input file image --}}
-                    <div class="col-6 mb-3">
+                    <div class="col-12 col-sm-4 mb-3">
                         <label for="image" class="form-label">Immagine <span class="asterisco">*</span></label>
                         {{-- <input type="file" name="image" id="image"
                             class="form-control @error('image') is-invalid @enderror"> --}}
@@ -120,8 +121,8 @@
                         <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
                             id="image" style="display:none;">
 
+                        </div>
                         <span id="errorImage" class="text-danger"></span>
-                    </div>
                     {{-- /input file image --}}
 
                 </div>
@@ -165,7 +166,7 @@
         <div class="mt-5">
             <span class="asterisco">*</span>
             <span class="field-required">
-                ⁠questi campi sono obbligatori
+                questi campi sono obbligatori
             </span>
         </div>
     </div>

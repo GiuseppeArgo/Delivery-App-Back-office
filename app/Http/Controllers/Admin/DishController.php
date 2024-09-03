@@ -53,7 +53,7 @@ class DishController extends Controller
 
         // if it has found a match we return to create with an error message
         if (!$name->isEmpty()) {
-            return redirect()->route('admin.dishes.create')->with('error', 'Nel tuo menu hai già un piatto con quel nome.')->withInput();
+            return redirect()->route('admin.dishes.create')->with('error', 'Nel tuo menù hai già un piatto con quel nome.')->withInput();
         } else{
             // standardizes the price with 2 decimal places
             $data['price'] = number_format($data['price'], 2, '.', '');
