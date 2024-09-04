@@ -5,7 +5,7 @@
     <div class="row mt-3 mb-5">
         <div class="col-12 col-sm-12 col-md-6 flex-center gap-2">
             {{-- btn home --}}
-            <a class="btn btn-primary btn-form-action rounded-5 px-2 py-1" href="{{ route('admin.orders.index') }}">
+            <a class="btn-action-form" href="{{ route('admin.orders.index') }}">
                 <i class="fa-solid fa-arrow-left"></i>
             </a>
             {{-- btn home --}}

@@ -9,29 +9,27 @@
 
 <h1 class="text-center mt-5 mb-4">Dettagli piatto</h1>
 {{-- container --}}
-<div class="form-container container p-5">
+<div class="form-container container w-75 form-padding">
 
 
-        <a href="{{ route('admin.dishes.index') }}" class="btn btn-primary btn-action-form btn-left flex-center">
-            <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
+        <a href="{{ route('admin.dishes.index') }}" class="btn-action-form d-inline-block btn-left">
+            <i class="fa-solid fa-arrow-left"></i>
         </a>
         <a class="btn-action-form btn-right" href="{{ route('admin.dishes.edit', ['dish' => $dish->slug]) }}">
             <i class="fa-solid fa-pen-to-square"></i>
         </a>
 
-        <div class="row justify-content-center align-items-center">
+        <div class="row flex-center">
 
             {{-- img --}}
-            <div class="col-sm-12 col-md-12 col-lg-6 text-center">
-                {{-- <div class="square-image-container border"> --}}
-                    <img src="{{ asset('storage/' . $dish->image) }}" alt="" class="square-image-restaurant">
-                {{-- </div> --}}
+            <div class="col-sm-12 col-md-12 col-lg-6 p-0 text-center">
+                    <img src="{{ asset('storage/' . $dish->image) }}" alt="" class="square-image">
             </div>
             {{-- /img --}}
 
 
             {{-- details dish --}}
-            <div class="col-sm-12 col-md-12 col-lg-6 text-lg-start p-4 d-flex flex-column gap-2 align-items-center justify-content-center restaurants-details">
+            <div class="col-sm-12 col-md-12 col-lg-6 text-lg-start flex-center flex-column gap-2 font-restaurants-details">
                         <div>
                             <p class="p-0 m-0">
                                 <strong>Nome del piatto: </strong>

@@ -49,19 +49,23 @@ img{
     border-radius: 50%;
     background-color: $blue;
     color: $white;
+    text-decoration: none;
+}
+
+.btn-right,
+.btn-left{
+    position: absolute;
+    top: 10px;
 }
 
 .btn-right{
-    position: absolute;
-    top: 10px;
     right: 10px;
 }
 
 .btn-left{
-    position: absolute;
-    top: 10px;
     left: 10px;
 }
+
 
 form{
     height: min-content;
@@ -85,13 +89,6 @@ form{
 .red{
     color:$red;
 }
-// .index-restaurant .btn{
-//     width: 10vw;
-// }
-// .index-restaurant div a,
-// .index-restaurant form button{
-//     font-size: 1.3vw;
-// }
 
 // edit restaurant
 
@@ -171,6 +168,53 @@ form{
 }
 
 
+
+
+
+.navbar-nav .dropdown-menu {
+    position: absolute;
+    top: 30px; /* Posiziona il dropdown immediatamente sotto l'elemento genitore */
+    right: 0;
+    background-color: white;
+    z-index: 1000;
+}
+
+// dropdown menu welcome
+
+/* In modalità mobile, rendi il dropdown statico o fixed per evitare l'espansione dell'header */
+@media (max-width: 768px) {
+    .navbar-nav .dropdown-menu {
+        position: fixed; /* Fixed mantiene il menu nella posizione senza alterare l'header */
+        top: 50px;
+        right: 0;
+        // width: 100%;
+        background-color: white;
+        z-index: 1050;
+        display: none; /* Nascondi il dropdown finché non viene attivato */
+    }
+
+    .navbar-nav .dropdown-menu.show {
+        display: block;
+        margin-top: 0;
+    }
+}
+
+// dropdown menu welcome
+
+
+// menu sidebar
+
+.sidebar.show {
+    position: fixed; /* Rende la sidebar visibile su tutta la pagina */
+    top: 54px;
+    left: 0;
+    height: 100%; /* Assicura che la sidebar occupi l'intera altezza della pagina */
+    z-index: 1050; /* Posiziona la sidebar sopra altri elementi */
+    overflow-y: auto; /* Aggiunge uno scroll interno se il contenuto è più lungo della sidebar */
+}
+
+
+// menu sidebar
 
 
 

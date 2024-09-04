@@ -6,13 +6,18 @@
 
 //homepage logo
 .logoext{
-    width: 300px;
+    width: 400px;
 }
 
-// // edit view
-// .container-preview{
-//     width: 200px;
-// }
+.logo_laravel_header span{
+    font-size: 20px !important;
+}
+
+@media (max-width: 768px){
+    .logoext{
+        width: 300px;
+    }
+}
 
 .card-img{
     position: relative;
@@ -38,17 +43,6 @@
     cursor: pointer;
 }
 
-
-// .overlay-img{
-//     border: 1px solid black;
-//     width: 100%;
-//     height: 100%;
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     background-color: rgba(0,0,0,0.3);
-//     opacity:0;
-// }
 
 .card-img-new:hover .overlay-img{
     opacity: 1;
@@ -87,8 +81,8 @@ td,th{
     font-size: clamp(8px, 0.8vw, 14px);
 }
 
-.restaurants-details{
-    font-size: clamp(14px, 2vw, 20px);
+.font-restaurants-details{
+    font-size: clamp(14px, 2vw, 18px);
 }
 
 input,
@@ -98,6 +92,13 @@ textarea{
 
 .padding-button {
     padding: 10px 12px;
+}
+
+.form-padding{
+    padding-top: 50px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .pagination .page-item .page-link {

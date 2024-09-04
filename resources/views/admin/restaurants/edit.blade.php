@@ -6,17 +6,17 @@
     {{-- title --}}
 
     {{-- container  --}}
-    <div class="form-container pt-5 pb-2 ps-2 pe-2">
+    <div class="form-container form-padding">
 
         {{-- btn-home --}}
-            <a href="{{ route('admin.restaurants.index') }}" class="btn btn-primary btn-action-form btn-left flex-center rounded-5">
-                <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
+            <a href="{{ route('admin.restaurants.index') }}" class="btn-action-form btn-left">
+                <i class="fa-solid fa-arrow-left"></i>
             </a>
         {{-- /btn-home --}}
 
 
         {{-- form --}}
-        <form class="d-flex flex-column w-100"
+        <form class="d-flex flex-column"
             action="{{ route('admin.restaurants.update', ['restaurant' => $restaurant->slug]) }}" method="POST"
             enctype="multipart/form-data">
             @csrf
@@ -100,11 +100,11 @@
                 {{-- errors typologies --}}
 
                 <div class="container mb-4">
-                    <div class="row justify-content-center align-items-center" role="group"
+                    <div class="row" role="group"
                         aria-label="Basic checkbox toggle button group">
                         @foreach ($listTypes as $curType)
                             <div
-                                class="col-6 col-sm-4 col-md-3 col-lg-3 p-1 rounded-0 btn-group flex flex-wrap justify-content-center align-items-center">
+                                class="col-6 col-sm-4 col-md-3 col-lg-3 p-1 rounded-0 btn-group flex-center flex-wrap">
                                 <input type="checkbox" class="btn-check" id="tech-{{ $curType->id }}" name="tipologies[]"
                                     value="{{ $curType->id }}" @checked(in_array($curType->id, old('tipologies', $restaurant->types->pluck('id')->toArray())))>
                                 <label class="btn btn-outline-primary"
@@ -119,7 +119,7 @@
 
 
             {{-- input file image --}}
-            <div class="container mb-3">
+            <div class="container">
 
                 <label for="image"> Immagine <span class="asterisco">*</span></label>
                 {{-- <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
@@ -145,12 +145,12 @@
 
 
             {{-- image --}}
-            <div class="container-preview m-auto mt-3 ">
+            <div class="m-auto mt-3 ">
                 <div class="mt-2 card-img">
                     {{-- old image --}}
                     @if ($restaurant->image)
                         <img id="oldImg" src="{{ asset('storage/' . $restaurant->image) }}" alt="old-image"
-                            class="img-fluid mb-2 square-image square-image-edit-restaurant">
+                            class="img-fluid mb-2 square-image">
                     @endif
                     {{-- /old image --}}
 

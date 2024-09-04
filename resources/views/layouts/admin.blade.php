@@ -67,12 +67,12 @@
 
 
         <div class="container-fluid">
-            <div class="row sidebar-row">
+            <div class="row sidebar-row ">
 
                 {{-- sidebar --}}
                 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
                     <div class="position-sticky pt-3">
-                        <ul class="d-flex flex-column fs-5 gap-2">
+                        <ul class="d-flex flex-column fs-5 gap-2 ">
                             {{-- user --}}
                             <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}"
@@ -93,10 +93,6 @@
 
                             {{-- hide and show link --}}
                             @if (isset($userHasRestaurant) && $userHasRestaurant)
-
-
-
-
                                 {{-- Show menu --}}
                                 <li>
                                     <a class="nav-link text-white"
@@ -170,3 +166,5 @@
 </body>
 
 </html>
+
+

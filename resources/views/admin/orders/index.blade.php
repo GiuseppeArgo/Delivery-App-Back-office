@@ -16,33 +16,23 @@
         </div>
     @endif
 
-    <div class="flex-center gap-2 mt-4">
-        {{-- btn-home --}}
-        <a href="{{ route('admin.restaurants.index') }}"
-            class="btn btn-primary btn-action-form flex-center rounded-5">
-            <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
-        </a>
-        {{-- /btn-home --}}
-        {{-- title  --}}
-        <h1 class="text-center p-0 m-0">Lista ordini</h1>
-        {{-- /title  --}}
-    </div>
+    {{-- title  --}}
+    <h1 class="text-center pt-4">Lista ordini</h1>
+    {{-- /title  --}}
 
     {{-- container  --}}
-    <div class="form-container w-100 pt-5 pb-5">
+    <div class="form-container w-100 pt-5 pb-2">
         @if (count($orders) > 0)
-
+        
             {{-- btn-home --}}
-            <div class="btn-action-form btn-left">
-                <a href="{{ route('admin.restaurants.index') }}">
-                    <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
-                </a>
-            </div>
+            <a class="btn-action-form btn-left" href="{{ route('admin.restaurants.index') }}">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
             {{-- /btn-home --}}
 
             {{-- btn-stats --}}
             <a class="btn-action-form btn-right" href="{{ route('admin.stats.index') }}">
-                <i class="fa-solid fa-chart-line" style="color: #ffffff;"></i>
+                <i class="fa-solid fa-chart-line"></i>
             </a>
             {{-- /btn-stats --}}
 

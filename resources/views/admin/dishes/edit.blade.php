@@ -6,11 +6,11 @@
     {{-- /title --}}
 
     {{-- container --}}
-    <div class="form-container pt-5 pb-3 ps-2 pe-2">
+    <div class="form-container form-padding">
 
         {{-- btn-back-menu --}}
-        <a href="{{ route('admin.dishes.index') }}" class="btn btn-primary btn-action-form btn-left flex-center">
-            <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
+        <a href="{{ route('admin.dishes.index') }}" class="btn-action-form btn-left">
+            <i class="fa-solid fa-arrow-left"></i>
         </a>
         {{-- btn-back-menu --}}
 
@@ -61,10 +61,10 @@
                         <div class="btn-group d-flex" role="group" aria-label="Disponibilità">
                             <input type="radio" name="visibility" id="active" value="1" class="btn-check"
                                 {{ $dish->visibility == 1 ? 'checked' : '' }}>
-                            <label class="btn btn-outline-primary btn-label" for="active">Si</label>
+                            <label class="btn btn-outline-primary" for="active">Si</label>
                             <input type="radio" name="visibility" id="inactive" value="0" class="btn-check"
                                 {{ $dish->visibility == 0 ? 'checked' : '' }}>
-                            <label class="btn btn-outline-primary btn-label truncate text-nowrap" for="inactive">No</label>
+                            <label class="btn btn-outline-primary" for="inactive">No</label>
                         </div>
                     </div>
                     {{-- Availability --}}
@@ -136,7 +136,7 @@
                 <div class="mt-2 card-img">
                     @if (!empty($dish->image))
                         <img id="oldImg" src="{{ asset('storage/' . $dish->image) }}" alt="Old Image"
-                            class="img-fluid mb-2 square-image square-image-edit-restaurant">
+                            class="img-fluid mb-2 square-image">
                     @endif
                     <img id="imagePreview" class="hide mb-2 square-image" src=""
                         alt="New Image Preview">

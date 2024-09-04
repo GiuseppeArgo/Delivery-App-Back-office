@@ -36,19 +36,19 @@
                 {{-- logo --}}
 
                 {{-- menu hamburger --}}
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </button> --}}
                 {{-- /menu hamburger --}}
 
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div id="navbarSupportedContent">
 
 
                     <!-- Navbar link -->
-                    <ul class="navbar-nav nav-header ml-auto gap-1 justify-content-end w-100 fw-bold">
+                    <ul class="navbar-nav nav-header ml-auto justify-content-end w-100 fw-bold">
                         <!-- Authentication Links -->
                         @guest
 
@@ -84,7 +84,7 @@
                                 </a>
 
                                 {{-- dropdown --}}
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-scrollable" aria-labelledby="navbarDropdown">
 
                                     {{-- dahboard --}}
                                     <a class="dropdown-item"

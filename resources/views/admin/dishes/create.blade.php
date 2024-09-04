@@ -8,11 +8,11 @@
 {{-- /title --}}
 
 {{-- container --}}
-<div class="form-container pt-5 pb-2 ps-2 pe-2">
+<div class="form-container form-padding">
 
         {{-- btn-back-menu --}}
-        <a href="{{ route('admin.dishes.index') }}" class="btn btn-primary btn-action-form btn-left flex-center rounded-5">
-            <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
+        <a href="{{ route('admin.dishes.index') }}" class="btn-action-form btn-left flex-center">
+            <i class="fa-solid fa-arrow-left"></i>
         </a>
         {{-- / btn-back-menu --}}
 
@@ -21,7 +21,8 @@
 
             {{-- Name --}}
             <div class="container mb-3">
-                <label for="name" class="form-label mt-3">Nome piatto <span class="asterisco">*</span>
+                <label for="name" class="form-label mt-3">Nome piatto
+                    <span class="asterisco">*</span>
                     {{-- error message --}}
                     @error('name')
                         <span class="text-danger">{{ $errors->first('name') }}</span>
@@ -31,8 +32,6 @@
                         <span class="text-danger">{{ session('error') }}</span>
                     @endif
                     {{-- /error message --}}
-
-
                 </label>
                 <input value="{{ old('name') }}" type="text" minlength="5" maxlength="20" name="name"
                     class="form-control @error('name') is-invalid @enderror" placeholder="es. Lasagna" required
@@ -59,6 +58,7 @@
 
             <div class="container">
                 <div class="row">
+
                     {{-- Price --}}
                     <div class="col-12 col-md-7 mb-3">
                         <label for="price" class="form-label">Prezzo <span class="asterisco">*</span>
@@ -79,15 +79,12 @@
 
                     {{-- input file image --}}
                     <div class="col-12 col-md-5 mb-3">
-                        <label for="image" class="form-label">Immagine <span class="asterisco">*</span>
-
-
+                        <label for="image" class="form-label">Immagine
+                            <span class="asterisco">*</span>
                         </label>
 
-
-
                         <!-- customize button -->
-                        <button type="button" class="custom-file-upload btn btn-primary d-block">Selziona</button>
+                        <button type="button" class="custom-file-upload btn btn-primary d-block">Scegli file</button>
 
                         <!--  hide Input file -->
                         <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
@@ -97,10 +94,11 @@
                         @error('image')
                             <span class="text-danger">{{ $errors->first('image') }}</span>
                         @enderror
-                        {{-- /error message --}}
-                        <span id="errorImage" class="text-danger"></span>
 
-                        {{-- /input file image --}}
+                        <span id="errorImage" class="text-danger"></span>
+                        {{-- /error message --}}
+
+                    {{-- /input file image --}}
 
                 </div>
             </div>
@@ -108,8 +106,8 @@
 
             <div class="m-auto mt-3 square-image-container">
                 {{-- img preview --}}
-                <div class="mt-2 card-img w-100 p-0 m-0">
-                    <img id="imagePreview" class="from-control hide square-image square-image-edit-restaurant  mb-2 w-100" src="" alt="new-image">
+                <div class="mt-2 card-img ">
+                    <img id="imagePreview" class="hide mb-2 square-image w-100" src="" alt="new-image">
                 </div>
                 {{-- /img preview --}}
 

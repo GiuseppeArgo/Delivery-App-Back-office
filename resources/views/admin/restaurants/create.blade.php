@@ -6,14 +6,14 @@
     {{-- /title --}}
 
     {{-- container  --}}
-    <div class="form-container pt-5 pb-2 ps-2 pe-2">
+    <div class="form-container form-padding">
 
         {{-- form --}}
         <form class="d-flex flex-column" action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="container">
-                <div class="row mb-4">
+                <div class="row">
                     {{-- name --}}
                     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                         <label for="name" class="form-label">Nome ristorante <span class="asterisco">*</span>
@@ -90,11 +90,11 @@
                 {{-- errors typologies --}}
 
                 <div class="container mb-4">
-                    <div class="row justify-content-center align-items-center" role="group"
+                    <div class="row" role="group"
                         aria-label="Basic checkbox toggle button group">
                         @foreach ($listTypes as $curType)
                             <div
-                                class="col-6 col-sm-4 col-md-3 col-lg-3 p-1 rounded-0 btn-group flex flex-wrap justify-content-center align-items-center">
+                                class="col-6 col-sm-4 col-md-3 col-lg-3 p-1 rounded-0 btn-group flex-center flex-wrap">
                                 <input type="checkbox" class="btn-check" id="tech-{{ $curType->id }}" name="tipologies[]"
                                     value="{{ $curType->id }}" @checked(in_array($curType->id, old('tipologies', [])))>
                                 <label class="btn btn-outline-primary"
@@ -155,10 +155,10 @@ is-invalid
 
 
             {{-- image --}}
-            <div class="container-preview m-auto mt-3 mb-3 square-image-container">
+            <div class="m-auto mt-3 mb-3 square-image-container">
                 {{-- img preview --}}
                 <div class="mt-2 card-img">
-                    <img id="imagePreview" class="hide square-image square-image-edit-restaurant" src=""
+                    <img id="imagePreview" class="hide square-image" src=""
                         alt="new-image">
                 </div>
                 {{-- /img preview --}}

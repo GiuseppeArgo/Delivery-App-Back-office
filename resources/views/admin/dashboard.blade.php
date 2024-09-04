@@ -11,9 +11,9 @@
             @endif
             {{-- /success message --}}
 
-            <h3 class="mb-3 fs-3 text-center">
+            <h1 class="mb-3 text-center">
                 Dati anagrafici
-            </h3>
+            </h1>
 
                 {{-- user details --}}
                 <div class="form-container p-2 m-auto">

@@ -1,23 +1,13 @@
 @extends('layouts.admin')
 
 @section('content')
-    {{-- btn --}}
-    {{-- <div class="flex-center mt-5 gap-2"> --}}
-    {{-- btn home --}}
-    {{-- <a class="btn btn-primary" href="{{ route('admin.restaurants.index') }}">
-            <i class="fa-solid fa-circle-arrow-left"></i>
-            Indietro
-        </a> --}}
-    {{-- btn home --}}
 
-    {{-- </div> --}}
-    {{-- /btn --}}
 
     <div class="container">
         <div class="row justify-content-center">
             {{-- header --}}
 
-            <div class="mt-5 mb-2  text-center ">
+            <div class="mt-5 mb-2 text-center ">
                 <h1 class="p-0 d-block">
                     Menù
                 </h1>
@@ -25,8 +15,8 @@
                 <div class="flex-center gap-2">
                     {{-- btn-home --}}
                     <div>
-                        <a href="{{ route('admin.restaurants.index') }}" class="btn btn-primary btn-table flex-center rounded-5">
-                            <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
+                        <a href="{{ route('admin.restaurants.index') }}" class="btn-action-form flex-center">
+                            <i class="fa-solid fa-arrow-left"></i>
                         </a>
                     </div>
                     {{-- /btn-home --}}
@@ -40,7 +30,7 @@
                     <div>
                         <form action="{{ route('admin.dishes.create') }}" method="GET">
                             <input type="text" class="hide" name="restaurant_id" value="{{ $restaurant_id }}">
-                            <button type="submit" class="btn btn-primary btn-table flex-center rounded-5">
+                            <button type="submit" class="btn-action-form border-0 flex-center">
                                 <i class="fa-solid fa-plus"></i>
                             </button>
                         </form>
@@ -56,7 +46,7 @@
 
             @if (count($dishesList) > 0)
                 {{-- table --}}
-                <div class="table-responsive text-center">
+                <div class="table-responsive text-center w-75">
                     <table class="table table-bordered m-auto">
 
                         {{-- thead --}}
@@ -81,7 +71,6 @@
                                     {{-- price --}}
                                     <td class="align-middle">{{ $dish->price }} €</td>
 
-
                                     {{-- statuts --}}
                                     <td class="align-middle d-cell gap-2">
 
@@ -96,7 +85,7 @@
                                             <input type="text" class="hide" name="visibility"
                                                 value="{{ $dish->visibility }}">
                                             <button type="submit"
-                                                class="btn-table btn flex-center @if ($dish->visibility == 1) btn btn-outline-success @else btn btn-outline-danger @endif">
+                                                class="btn-table flex-center @if ($dish->visibility == 1) btn btn-outline-success @else btn btn-outline-danger @endif">
                                                 <span>
                                                     {{ $dish->visibility == 1 ? 'SI' : 'NO' }}
                                                 </span>

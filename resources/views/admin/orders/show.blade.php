@@ -12,8 +12,8 @@
         <form action="{{ route('admin.orders.index') }}" method="GET">
             @csrf
             <input type="text" class="hide" name="restaurant_id" value="{{ $orders['restaurant_id'] }}">
-            <button type="submit" class="btn btn-primary btn-action-form btn-left flex-center">
-                <i class="fa-solid fa-arrow-left" style="color: #ffffff;"></i>
+            <button type="submit" class="btn-action-form btn-left">
+                <i class="fa-solid fa-arrow-left"></i>
             </button>
         </form>
         {{-- btn-back-menu --}}
