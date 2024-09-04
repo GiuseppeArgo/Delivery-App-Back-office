@@ -103,8 +103,9 @@
 
                         </label>
                         <input type="number" id="price" name="price"
-                            class="form-control @error('price') is-invalid @enderror" value="{{ old('price', $dish->price) }}"
-                            placeholder="es. 10.00" required min="3" max="30" step="0.01">
+                            class="form-control @error('price') is-invalid @enderror"
+                            value="{{ old('price', $dish->price) }}" placeholder="es. 10.00" required min="3"
+                            max="30" step="0.01">
                     </div>
                     {{-- /Price --}}
 
@@ -121,8 +122,8 @@
                         <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
                             id="image" style="display:none;">
 
-                        </div>
-                        <span id="errorImage" class="text-danger"></span>
+                    </div>
+                    <span id="errorImage" class="text-danger"></span>
                     {{-- /input file image --}}
 
                 </div>
@@ -131,23 +132,24 @@
 
 
             {{-- old and new preview image --}}
-            <div class="container-preview m-auto mt-3 square-image-container">
+            <div class="container-preview m-auto mt-3">
                 <div class="mt-2 card-img">
                     @if (!empty($dish->image))
                         <img id="oldImg" src="{{ asset('storage/' . $dish->image) }}" alt="Old Image"
                             class="img-fluid mb-2 square-image square-image-edit-restaurant">
                     @endif
-                    <img id="imagePreview" class="hide mb-3 square-image square-image-edit-restaurant" src=""
+                    <img id="imagePreview" class="hide mb-2 square-image" src=""
                         alt="New Image Preview">
+                    {{-- btn-remove --}}
+                    <div class="flex-center mb-2">
+                        <button id="btnDelete" class="hide"
+                            onclick="removeImage(event)">Rimuovi</button>
+                    </div>
+                    {{-- /btn-remove --}}
                 </div>
             </div>
             {{-- old and new preview image --}}
 
-            {{-- btn-remove --}}
-            <div class="flex-center mb-2">
-                <button id="btnDelete" class="btn btn-danger hide mt-3" onclick="removeImage(event)">Rimuovi</button>
-            </div>
-            {{-- /btn-remove --}}
 
             {{-- button add --}}
             <div class="flex-center">
