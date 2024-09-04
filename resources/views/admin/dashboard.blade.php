@@ -11,7 +11,7 @@
             @endif
             {{-- /success message --}}
 
-            <h1 class="mb-3 text-center">
+            <h1 class="pb-4 text-center">
                 Dati anagrafici
             </h1>
 

@@ -24,10 +24,10 @@
 
         {{-- navbar --}}
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container d-flex justify-content-end justify-content-md-between">
 
                 {{-- logo --}}
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+                <a class="navbar-brand d-none d-md-inline-block" href="{{ url('/') }}">
                     <div class="logo_laravel_header">
                         <span>DELIVE</span>
                         <span>BOO</span>
@@ -44,16 +44,15 @@
                 {{-- /menu hamburger --}}
 
 
-                <div id="navbarSupportedContent">
-
+                <div id="navbarSupportedContent w-100">
 
                     <!-- Navbar link -->
-                    <ul class="navbar-nav nav-header ml-auto justify-content-end w-100 fw-bold">
+                    <ul class="ml-auto list-unstyled w-100 fw-bold flex-center justify-content-end gap-4 p-0 m-0">
                         <!-- Authentication Links -->
                         @guest
 
                             {{-- go back in front office --}}
-                            <li class="nav-item">
+                            <li class="">
                                 <a class="nav-link" href="http://localhost:5174/">
                                     {{ __('Home Deliveboo') }}
                                 </a>
@@ -61,14 +60,14 @@
                             {{-- /go back in front office --}}
 
                             {{-- login --}}
-                            <li class="nav-item">
+                            <li class="">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
                             </li>
                             {{-- /login --}}
 
                             {{-- register --}}
                             @if (Route::has('register'))
-                                <li class="nav-item">
+                                <li class="">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                                 </li>
                             @endif

@@ -1,13 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mt-4">
+    <div class="container-fluid bg-light pt-4">
         <div class="row justify-content-center">
+
+            {{-- logo --}}
+            <div class="pt-2 pb-4 w-100 d-inline-block d-md-none text-center">
+                <img class="logoext text-center" src="{{ asset('storage/img/logo_esteso.png') }}" alt="logo">
+            </div>
+            {{-- /logo --}}
+
             <div class="col-md-8">
                 <h1 class="text-center mt-1 mb-4">
                     Pagina registrazione
                 </h1>
-                <div class="card">
+                <div class="card container bg-trasp">
 
                     {{-- form --}}
                     <div class="card-body">

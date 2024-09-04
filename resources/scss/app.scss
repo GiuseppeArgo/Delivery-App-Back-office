@@ -63,7 +63,7 @@
 }
 
 .asterisco{
-    color: red;
+    color: $blue;
 }
 .field-required,.asterisco,label,.label,.btn-label,span{
     font-size: clamp(8px, 2vw, 18px) !important;

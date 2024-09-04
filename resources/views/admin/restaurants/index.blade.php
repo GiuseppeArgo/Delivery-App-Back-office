@@ -36,8 +36,8 @@
                     <div class="row flex-center">
 
                         {{-- restaurant-img --}}
-                        <div class="col-sm-12 col-md-12 col-lg-6 p-0 text-center ">
-                            <img class="square-image-restaurant" src="{{ asset('storage/' . $curRestaurant->image) }}"
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-6 p-0 text-center ">
+                            <img class="square-image w-75" src="{{ asset('storage/' . $curRestaurant->image) }}"
                                 alt="img-restaurant">
                         </div>
                         {{-- /restaurant-img --}}
@@ -45,7 +45,7 @@
 
                         {{-- restaurant text --}}
                         <div
-                            class="col-sm-12 col-md-12 col-lg-6 text-lg-start pt-3 d-flex flex-column gap-2 align-items-center font-restaurants-details">
+                            class="col-12 col-sm-6 col-md-6 col-lg-6 text-lg-start pt-3 d-flex flex-column gap-2 align-items-center align-items-md-start font-restaurants-details">
 
                             {{-- name --}}
                             <div>
