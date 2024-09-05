@@ -66,9 +66,9 @@ class OrderController extends Controller
     {
         $data = Auth::id();
         // find order details by id
-        $order = Order::with('dishes')->findOrFail($id);
+        $orderDetails = Order::with('dishes')->findOrFail($id);
         // if the user_id does not match the restaurant id it takes you back to the index
-        if($data != $order->dishes[0]->restaurant_id){
+        if($data != $orderDetails->dishes[0]->restaurant_id){
 
             $restaurantId = Auth::id();
             $dishesForRestaurant = Dish::where('restaurant_id', $restaurantId)->pluck('id');
@@ -79,10 +79,10 @@ class OrderController extends Controller
             return view("admin.orders.index", compact('orders'))->with('error','Puoi accedere solo ai tuoi ordini!');
         } else {
             $orders = [
-                'restaurant_id' => $order->dishes[0]->restaurant_id,
-                'dishes' => $order->dishes
+                'restaurant_id' => $orderDetails->dishes[0]->restaurant_id,
+                'dishes' => $orderDetails->dishes
             ];
-            return view('admin.orders.show', compact('orders'));
+            return view('admin.orders.show', compact('orders','orderDetails'));
         }
     }
 

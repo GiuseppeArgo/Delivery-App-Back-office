@@ -54,7 +54,7 @@
                             {{-- go back in front office --}}
                             <li class="">
                                 <a class="nav-link" href="http://localhost:5174/">
-                                    {{ __('Home Deliveboo') }}
+                                    {{ __('Home') }}
                                 </a>
                             </li>
                             {{-- /go back in front office --}}

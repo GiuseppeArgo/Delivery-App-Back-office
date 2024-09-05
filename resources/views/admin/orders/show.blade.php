@@ -1,24 +1,89 @@
 @extends('layouts.admin')
 
 @section('content')
-
+@php
+use Carbon\Carbon;
+@endphp
 {{-- title --}}
     <h1 class="mt-5 mb-4 text-center">Ordini</h1>
 {{-- /title --}}
 
 {{-- container --}}
-<div class="form-container p-5">
+<div class="form-container form-padding">
         {{-- btn-back-menu --}}
         <form action="{{ route('admin.orders.index') }}" method="GET">
             @csrf
             <input type="text" class="hide" name="restaurant_id" value="{{ $orders['restaurant_id'] }}">
-            <button type="submit" class="btn-action-form btn-left">
+            <button type="submit" class="btn-action-form btn-left border-0">
                 <i class="fa-solid fa-arrow-left"></i>
             </button>
         </form>
         {{-- btn-back-menu --}}
 
-        {{-- table --}}
+        {{-- order details  --}}
+        <div class="container-fluid border rounded-5 p-3">
+            <h5 class="text-center border-bottom pb-2">Riepilogo ordine:</h5>
+            <div class="row">
+                <div>
+                    <span>
+                        <strong>Ordine n. :</strong>
+                    </span>
+                    <span>
+                        {{ $orderDetails->id }}
+                    </span>
+                </div>
+                <div>
+                    <span>
+                        <strong>Nome:</strong>
+                    </span>
+                    <span>
+                        {{ $orderDetails->name}} {{ $orderDetails->lastname}}
+                    </span>
+                </div>
+                <div>
+                    <span>
+                        <strong>Indirizzo: </strong>
+                    </span>
+                    <span>
+                        {{ $orderDetails->address}}
+                    </span>
+                </div>
+                <div>
+                    <span>
+                        <strong>E-mail: </strong>
+                    </span>
+                    <span>
+                        {{ $orderDetails->email}}
+                    </span>
+                </div>
+                <div>
+                    <span>
+                        <strong>Telefono:</strong>
+                    </span>
+                    <span>
+                        {{ $orderDetails->phone_number}}
+                    </span>
+                </div>
+                <div>
+                    <span>
+                        <strong>Data: </strong>
+                    </span>
+                    <span>
+                        {{ Carbon::parse($orderDetails->date)->format('d/m/Y') }} ,
+                    </span>
+                    <span>
+                        <strong>Ore: </strong>
+                    </span>
+                    <span>
+                        {{ Carbon::parse($orderDetails->date)->format('H:i') }}
+                    </span>
+                </div>
+
+            </div>
+        </div>
+        {{-- /order details  --}}
+
+        {{-- dishes order --}}
         <table class="table table-responsive striped text-center mt-5 ">
 
             {{-- thead --}}
@@ -31,27 +96,34 @@
             </thead>
             {{-- /thead --}}
 
-
             {{-- tbody --}}
             @foreach ($orders['dishes'] as $order)
-                <tbody>
-                    <tr>
-                        <td>
-                            {{ ucfirst(strtolower($order->name)) }}
-                        </td>
-                        <td>
-                            {{ $order->pivot->quantity }}
-                        </td>
-                        <td>
-                            {{ $order->price * $order->pivot->quantity }}€
-                        </td>
-                    </tr>
-                </tbody>
+            <tbody>
+                <tr>
+                    <td>
+                        {{ ucfirst(strtolower($order->name)) }}
+                    </td>
+                    <td>
+                        {{ $order->pivot->quantity }}
+                    </td>
+                    <td>
+                        {{ $order->price * $order->pivot->quantity }}€
+                    </td>
+                </tr>
+            </tbody>
             @endforeach
             {{-- /tbody --}}
-
         </table>
-        {{-- /table --}}
+        {{-- /dishes order --}}
+
+        <div class="text-end">
+            <span class="fs-5 text-danger">
+                <strong>Totale:</strong>
+            </span>
+            <span class="fs-5">
+                {{ $orderDetails->total_price }}€
+            </span>
+        </div>
 
     </div>
     {{-- /container --}}

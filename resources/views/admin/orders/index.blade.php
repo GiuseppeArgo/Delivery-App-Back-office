@@ -23,7 +23,7 @@
     {{-- container  --}}
     <div class="form-container w-100 pt-5 pb-2">
         @if (count($orders) > 0)
-        
+
             {{-- btn-home --}}
             <a class="btn-action-form btn-left" href="{{ route('admin.restaurants.index') }}">
                 <i class="fa-solid fa-arrow-left"></i>
@@ -47,8 +47,8 @@
                             <th scope="col">Nome</th>
                             <th scope="col">Telefono</th>
                             <th scope="col" class="d-none d-md-table-cell">Mail</th> {{-- --}}
-                            <th scope="col" class="d-none d-md-table-cell">Indirizzo</th>{{-- --}}
                             <th scope="col">Data</th>{{-- --}}
+                            <th scope="col" class="d-none d-md-table-cell">Indirizzo</th>{{-- --}}
                             <th scope="col">Totale</th>
                             <th scope="col" class="text-center">Dettagli</th>
                         </tr>
