@@ -32,16 +32,20 @@
         <header class="central-header navbar navbar-dark sticky-top bg-dark flex-md-nowrap shadow container-fluid p-2">
 
             {{-- logo --}}
-            <div class="row justify-content-between ps-1">
-                <a class="navbar-brand col-md-3 col-lg-2" href="/">Deliveboo</a>
+            <div class="container flex-center justify-content-between">
+                <div>
+                    <a class="navbar-brand" href="/">Deliveboo</a>
+                </div>
 
-                {{-- menu hamburger --}}
-                <button class="navbar-toggler position-absolute d-md-none collapsed" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                {{-- /menu hamburger --}}
+                <div class="">
+                    {{-- menu hamburger --}}
+                    <button class="navbar-toggler d-md-none collapsed" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    {{-- /menu hamburger --}}
+                </div>
 
             </div>
             {{-- /logo --}}
@@ -49,7 +53,7 @@
 
             {{-- /nav bar --}}
             <div class="navbar-nav">
-                <div class="nav-item text-nowrap ms-2 d-none d-md-block">
+                <div class="nav-item text-nowrap me-4 d-none d-md-block">
                     <a class="nav-link" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">

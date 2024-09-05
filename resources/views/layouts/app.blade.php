@@ -23,16 +23,16 @@
     <div id="app">
 
         {{-- navbar --}}
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-light border-bottom p-0 m-0">
             <div class="container d-flex justify-content-end justify-content-md-between">
 
                 {{-- logo --}}
-                <a class="navbar-brand d-none d-md-inline-block" href="{{ url('/') }}">
-                    <div class="logo_laravel_header">
+                <div class="logo_laravel_header flex-center">
+                <a class="navbar-brand d-none d-md-inline-block p-0 m-0" href="{{ url('/') }}">
                         <span>DELIVE</span>
                         <span>BOO</span>
-                    </div>
-                </a>
+                    </a>
+                </div>
                 {{-- logo --}}
 
                 {{-- menu hamburger --}}
@@ -47,7 +47,7 @@
                 <div id="navbarSupportedContent w-100">
 
                     <!-- Navbar link -->
-                    <ul class="ml-auto list-unstyled w-100 fw-bold flex-center justify-content-end gap-4 p-0 m-0">
+                    <ul class=" link-header-guest ml-auto list-unstyled w-100 fw-bold fs-5 flex-center justify-content-end gap-4 p-3 m-0">
                         <!-- Authentication Links -->
                         @guest
 

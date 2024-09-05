@@ -32,35 +32,6 @@ class OrderController extends Controller
         return view("admin.orders.index", compact('orders'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        $restaurantId = Auth::id();
-        $dishesForRestaurant = Dish::where('restaurant_id', $restaurantId)->pluck('id');
-        // Find orders that include those dishes
-        $orders = Order::whereHas('dishes', function ($query) use ($dishesForRestaurant) {
-            $query->whereIn('dish_id', $dishesForRestaurant);
-        })->get();
-
-        return view("admin.orders.index", compact('orders'));
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        $restaurantId = Auth::id();
-        $dishesForRestaurant = Dish::where('restaurant_id', $restaurantId)->pluck('id');
-        // Find orders that include those dishes
-        $orders = Order::whereHas('dishes', function ($query) use ($dishesForRestaurant) {
-            $query->whereIn('dish_id', $dishesForRestaurant);
-        })->get();
-
-        return view("admin.orders.index", compact('orders'));
-    }
 
     public function show(string $id)
     {
@@ -86,22 +57,7 @@ class OrderController extends Controller
         }
     }
 
-    // is index method...
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        $restaurantId = Auth::id();
-        $dish_id = Dish::where('restaurant_id', $restaurantId)->pluck('id');
-        // Find orders that include those dishes
-        $orders = Order::whereHas('dishes', function ($query) use ($dish_id) {
-            $query->whereIn('dish_id', $dish_id);
-        })->get();
 
-        return view("admin.orders.index", compact('orders'));
-    }
-    //id index method
 
     /**
      * Update the specified resource in storage.

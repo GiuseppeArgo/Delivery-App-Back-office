@@ -1,16 +1,16 @@
 @extends('layouts.admin')
 
 @section('content')
-@php
-use Carbon\Carbon;
-@endphp
-{{-- title --}}
+    @php
+        use Carbon\Carbon;
+    @endphp
+    {{-- title --}}
     <h1 class="mt-5 mb-4 text-center">Ordini</h1>
-{{-- /title --}}
+    {{-- /title --}}
 
-{{-- container --}}
-<div class="form-container form-padding">
-        {{-- btn-back-menu --}}
+    {{-- container --}}
+    <div class="form-container form-padding">
+        {{-- btn-back-order --}}
         <form action="{{ route('admin.orders.index') }}" method="GET">
             @csrf
             <input type="text" class="hide" name="restaurant_id" value="{{ $orders['restaurant_id'] }}">
@@ -18,42 +18,45 @@ use Carbon\Carbon;
                 <i class="fa-solid fa-arrow-left"></i>
             </button>
         </form>
-        {{-- btn-back-menu --}}
+        {{-- btn-back-order --}}
 
         {{-- order details  --}}
         <div class="container-fluid border rounded-5 p-3">
             <h5 class="text-center border-bottom pb-2">Riepilogo ordine:</h5>
             <div class="row">
-                <div>
-                    <span>
-                        <strong>Ordine n. :</strong>
-                    </span>
-                    <span>
-                        {{ $orderDetails->id }}
-                    </span>
+                <div class="col-12 col-sm-12 col-md-6">
+                    <div>
+                        <span>
+                            <strong>Ordine n. :</strong>
+                        </span>
+                        <span>
+                            {{ $orderDetails->id }}
+                        </span>
+                    </div>
+                    <div>
+                        <span>
+                            <strong>Nome:</strong>
+                        </span>
+                        <span>
+                            {{ $orderDetails->name }} {{ $orderDetails->lastname }}
+                        </span>
+                    </div>
+                    <div>
+                        <span>
+                            <strong>Indirizzo: </strong>
+                        </span>
+                        <span>
+                            {{ $orderDetails->address }}
+                        </span>
+                    </div>
                 </div>
-                <div>
-                    <span>
-                        <strong>Nome:</strong>
-                    </span>
-                    <span>
-                        {{ $orderDetails->name}} {{ $orderDetails->lastname}}
-                    </span>
-                </div>
-                <div>
-                    <span>
-                        <strong>Indirizzo: </strong>
-                    </span>
-                    <span>
-                        {{ $orderDetails->address}}
-                    </span>
-                </div>
-                <div>
+                <div class="col-12 col-sm-12 col-lg-6">
+<div>
                     <span>
                         <strong>E-mail: </strong>
                     </span>
                     <span>
-                        {{ $orderDetails->email}}
+                        {{ $orderDetails->email }}
                     </span>
                 </div>
                 <div>
@@ -61,7 +64,7 @@ use Carbon\Carbon;
                         <strong>Telefono:</strong>
                     </span>
                     <span>
-                        {{ $orderDetails->phone_number}}
+                        {{ $orderDetails->phone_number }}
                     </span>
                 </div>
                 <div>
@@ -77,6 +80,8 @@ use Carbon\Carbon;
                     <span>
                         {{ Carbon::parse($orderDetails->date)->format('H:i') }}
                     </span>
+                </div>
+
                 </div>
 
             </div>
@@ -98,19 +103,19 @@ use Carbon\Carbon;
 
             {{-- tbody --}}
             @foreach ($orders['dishes'] as $order)
-            <tbody>
-                <tr>
-                    <td>
-                        {{ ucfirst(strtolower($order->name)) }}
-                    </td>
-                    <td>
-                        {{ $order->pivot->quantity }}
-                    </td>
-                    <td>
-                        {{ $order->price * $order->pivot->quantity }}€
-                    </td>
-                </tr>
-            </tbody>
+                <tbody>
+                    <tr>
+                        <td>
+                            {{ ucfirst(strtolower($order->name)) }}
+                        </td>
+                        <td>
+                            {{ $order->pivot->quantity }}
+                        </td>
+                        <td>
+                            {{ $order->price * $order->pivot->quantity }}€
+                        </td>
+                    </tr>
+                </tbody>
             @endforeach
             {{-- /tbody --}}
         </table>

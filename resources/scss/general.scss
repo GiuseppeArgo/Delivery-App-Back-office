@@ -224,3 +224,19 @@ form{
 }
 // login
 
+// navbar-admin
+
+.navbar-toggler{
+    box-shadow: none !important;
+    border-color: 1px solid gray !important;
+    background-image: none !important;
+}
+
+.navbar-toggler:hover{
+    border: 1px solid $white !important;
+    transition: 0.5s;
+}
+
+// navbar-admin
+
+

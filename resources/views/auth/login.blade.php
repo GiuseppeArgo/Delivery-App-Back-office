@@ -2,15 +2,16 @@
 
 @section('content')
     <div class="container-fluid vh-100 bg-light pt-4">
+
         {{-- logo --}}
         <div class="pt-2 pb-4 w-100 d-inline-block d-md-none text-center">
             <img class="logoext text-center" src="{{ asset('storage/img/logo_esteso.png') }}" alt="logo">
         </div>
         {{-- /logo --}}
 
-        <div class="row justify-content-center pb-4">
+        <div class="row justify-content-center pt-3 pb-4">
             <h1 class="text-center mb-4"> Pagina Login</h1>
-            <div class="col-md-8">
+            <div class="col-md-5">
                 <div class="card container bg-trasp">
 
                     {{-- form --}}
@@ -26,7 +27,8 @@
                                 <div class="col-md-6">
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
-                                        value="{{ old('email') }}" required autocomplete="email" placeholder="mariorossi@example.com" autofocus>
+                                        value="{{ old('email') }}" required autocomplete="email"
+                                        placeholder="mariorossi@example.com" autofocus>
 
                                     {{-- error --}}
                                     @error('email')
