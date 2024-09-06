@@ -104,10 +104,10 @@
             </div>
 
 
-            <div class="m-auto mt-3 square-image-container">
+            <div class="m-auto mt-3 square-image">
                 {{-- img preview --}}
-                <div class="mt-2 card-img ">
-                    <img id="imagePreview" class="hide mb-2 square-image w-100" src="" alt="new-image">
+                <div class="mt-2 card-img">
+                    <img id="imagePreview" class="hide mb-2 square-image" src="" alt="new-image">
                 </div>
                 {{-- /img preview --}}
 

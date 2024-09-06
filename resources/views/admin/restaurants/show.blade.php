@@ -2,41 +2,41 @@
 {{--  abbiamo scelto di non usare questa pagina show di restaurant --}}
 
 
-
+{{--
 @extends('layouts.admin')
 
-@section('content')
+@section('content') --}}
 
     {{-- restaurant details --}}
-    <div class="form-container p-2">
+    {{-- <div class="form-container p-2">ù --}}
 
         {{-- header --}}
-        <div class="d-flex justify-content-center align-items-center gap-2">
+        {{-- <div class="d-flex justify-content-center align-items-center gap-2"> --}}
 
             {{-- title --}}
-            <h1>Ristorante: {{ $restaurant->name }}</h1>
+            {{-- <h1>Ristorante: {{ $restaurant->name }}</h1> --}}
 
             {{-- btn edit --}}
-            <a class="btn btn-success" href="{{ route('admin.restaurants.edit', ['restaurant' => $restaurant->slug]) }}">
+            {{-- <a class="btn btn-success" href="{{ route('admin.restaurants.edit', ['restaurant' => $restaurant->slug]) }}">
                 <i class="fa-solid fa-pen"></i>
-            </a>
+            </a> --}}
             {{-- /btn edit --}}
 
 
             {{-- Btn orders --}}
-            <form action="{{ route('admin.orders.index') }}" method="GET">
+            {{-- <form action="{{ route('admin.orders.index') }}" method="GET">
                 @csrf
                 <input type="text" class="hide" name="restaurant_id" value="{{ $restaurant->id }}">
                 <button type="submit" class="btn btn-secondary">
                     <i class="fa-solid fa-list-ul"></i> Ordini
                 </button>
-            </form>
+            </form> --}}
             {{-- /Btn orders --}}
 
-        </div>
+        {{-- </div> --}}
         {{-- /header --}}
 
-
+{{--
         <div class="mt-3 mb-3">
             <div class="row align-items-center justify-content-center  text-center">
                 <div class="col-6 mt-3 restaurant-text">
@@ -49,39 +49,39 @@
             </div>
 
         </div>
-    </div>
+    </div> --}}
     {{-- /restaurant details --}}
 
 
     {{-- menu restaurant  --}}
-    <div class="form-container p-5 ">
+    {{-- <div class="form-container p-5 "> --}}
 
         {{-- menu btn --}}
-        <div class="d-flex gap-2">
+        {{-- <div class="d-flex gap-2"> --}}
 
             {{-- btn add dish --}}
-            <form action="{{ route('admin.dishes.create') }}" method="GET">
+            {{-- <form action="{{ route('admin.dishes.create') }}" method="GET">
                 <input type="text" class="hide" name="restaurant_id" value="{{ $restaurant->id }}">
                 <button type="submit" class="btn btn-primary mb-4">
                     <i class="fa-solid fa-plus"></i> Piatto
                 </button>
-            </form>
+            </form> --}}
             {{-- /btn add dish --}}
 
             {{-- btn edit visibility --}}
-            <form action="{{ route('admin.dishes.index') }}" method="GET">
+            {{-- <form action="{{ route('admin.dishes.index') }}" method="GET">
                 <input type="text" class="hide" name="restaurant_id" value="{{ $restaurant->id }}">
                 <button type="submit" class="btn btn-success mb-4">
                     <i class="fa-solid fa-pen"></i> Visibilità
                 </button>
-            </form>
+            </form> --}}
             {{-- /btn edit visibility --}}
 
-        </div>
+        {{-- </div> --}}
         {{-- /menu btn --}}
 
         {{-- menu dish --}}
-        @if (count($restaurant->dishes) > 0)
+        {{-- @if (count($restaurant->dishes) > 0)
             <table class="table table-responsive">
                 <thead>
                     <th scope="col">Nome</th>
@@ -98,16 +98,16 @@
                     </tbody>
                 @endforeach
             </table>
-        @else
-            <p class="fs-2 mt-3">
+        @else --}}
+            {{-- <p class="fs-2 mt-3">
                 <strong>
                     Non ci sono piatti
                 </strong>
             </p>
-        @endif
+        @endif --}}
         {{-- /menu dish --}}
 
-    </div>
+    {{-- </div> --}}
     {{-- /menu restaurant  --}}
 
-@endsection
+{{-- @endsection --}}

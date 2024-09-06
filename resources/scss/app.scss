@@ -4,71 +4,10 @@
 @import "colorpalette.scss";
 
 
-//homepage logo
-.logoext{
-    width: 400px;
-}
-
-.logo_laravel_header{
-
-}
-
-.logo_laravel_header span{
-    font-size: 20px !important;
-}
-
-@media (max-width: 768px){
-    .logoext{
-        width: 300px;
-    }
-}
-
-.card-img{
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1;
-}
-
-#btnDelete{
-    position:absolute;
-    text-align: center;
-    z-index: 10;
-    top: 0%;
-    left: 0%;
-    border: 0;
-    background-color: rgba(224, 0, 23,0.9);
-    color: white;
-    width: 100%;
-    height: 20px;
-    line-height: 20px;
-}
-.btnDelete span{
-    display: inline-block;
-    height: 20px;
-}
-
-#btnDelete:hover{
-    cursor: pointer;
-}
 
 
-.card-img-new:hover .overlay-img{
-    opacity: 1;
-}
 
 // index order
-.order{
-    font-size: 12px;
-}
-
-// show restaurant
-.restaurant-img{
-    width: 200px;
-}
-
-.restaurant-text{
-    align-self: start;
-}
 
 .asterisco{
     color: $blue;
@@ -98,27 +37,4 @@ textarea{
     font-size: clamp(10px, 2vw, 16px) !important;
 }
 
-.padding-button {
-    padding: 10px 12px;
-}
 
-.form-padding{
-    padding-top: 50px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.pagination .page-item .page-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    line-height: 1.5;
-    font-size: 16px;
-}
-
-.pagination .page-item .page-link i {
-    margin: 0 auto;
-}

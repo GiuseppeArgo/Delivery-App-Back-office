@@ -17,3 +17,17 @@
         font-weight: bold;
     }
 }
+.logo_laravel_header span{
+    font-size: 20px !important;
+}
+// header logo
+
+// menu hamburger
+#sidebarMenu.collapse.show {
+    height: min-content !important;
+}
+
+#sidebarMenu.collapse.hide {
+    height: auto !important;
+}
+// menu hamburger

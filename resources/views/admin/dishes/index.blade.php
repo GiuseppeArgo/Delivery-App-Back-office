@@ -76,7 +76,7 @@
 
                                         {{-- change status --}}
 
-                                        <form class="form-visibility flex-center"
+                                        <form class="flex-center"
                                             action="{{ route('admin.dishes.toggle', ['id' => $dish->id]) }}" method="POST">
                                             @csrf
                                             @method('PUT')
@@ -85,7 +85,7 @@
                                             <input type="text" class="hide" name="visibility"
                                                 value="{{ $dish->visibility }}">
                                             <button type="submit"
-                                                class="btn-table flex-center @if ($dish->visibility == 1) btn btn-outline-success @else btn btn-outline-danger @endif">
+                                                class="size-btn-table flex-center @if ($dish->visibility == 1) btn btn-outline-success @else btn btn-outline-danger @endif">
                                                 <span>
                                                     {{ $dish->visibility == 1 ? 'SI' : 'NO' }}
                                                 </span>
@@ -98,11 +98,11 @@
                                     {{-- /status --}}
 
                                     <td class="p-0 m-0 align-middle">
-                                        <a class="btn btn-outline-primary p-1 btn-table"
+                                        <a class="btn btn-outline-primary p-1 size-btn-table"
                                             href="{{ route('admin.dishes.show', ['dish' => $dish->slug]) }}">
                                             <i class="fa solid fa-eye"></i>
                                         </a>
-                                        <a class="btn btn-outline-primary p-1 btn-table d-none d-sm-inline-block"
+                                        <a class="btn btn-outline-primary p-1 size-btn-table d-none d-sm-inline-block"
                                             href="{{ route('admin.dishes.edit', ['dish' => $dish->slug]) }}">
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </a>

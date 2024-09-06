@@ -132,7 +132,7 @@
 
 
             {{-- old and new preview image --}}
-            <div class="container-preview m-auto mt-3">
+            <div class="m-auto mt-3">
                 <div class="mt-2 card-img">
                     @if (!empty($dish->image))
                         <img id="oldImg" src="{{ asset('storage/' . $dish->image) }}" alt="Old Image"

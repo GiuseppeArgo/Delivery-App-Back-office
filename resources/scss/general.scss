@@ -1,13 +1,15 @@
 @import "colorpalette.scss";
 
+
+//commons general
+
 *{
  box-sizing: border-box;
 }
 
-.sidebar-row{
-    height: 90vh;
-}
-
+// .sidebar-row{
+//     height: 90vh;
+// }
 
 .hide{
     display: none !important;
@@ -16,6 +18,8 @@
 img{
     max-width: 100%;
 }
+
+// form - container
 
 .form-container-100{
     position:relative;
@@ -40,6 +44,29 @@ img{
     border:2px solid $gray;
 }
 
+form{
+    height: min-content;
+}
+
+.form-padding{
+    padding-top: 50px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+// /form - container
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+// commons general
+
+//commons btn
+.btn{
+    font-size: 13px;
+}
 
 .btn-action-form{
     width: 30px;
@@ -66,54 +93,46 @@ img{
     left: 10px;
 }
 
-
-form{
-    height: min-content;
+.size-btn-table{
+    width: 30px;
+    height: 30px;
 }
 
+//commons btn
 
-//
-// menu hamburger
-#sidebarMenu.collapse.show {
-    height: min-content !important; /* o un'altezza specifica */
-}
-
-#sidebarMenu.collapse.hide {
-    height: auto !important; /* o un'altezza specifica */
-}
-
-.green{
-    color: green;
-}
-
-.red{
-    color:$red;
-}
-
-// edit restaurant
-
-.btn-typologies{
+// btn delete
+#btnDelete{
+    position:absolute;
+    text-align: center;
+    z-index: 10;
+    top: 0%;
+    left: 0%;
+    border: 0;
+    background-color: rgba(224, 0, 23,0.9);
+    color: white;
     width: 100%;
+    height: 20px;
+    line-height: 20px;
+}
+.btnDelete span{
+    display: inline-block;
+    height: 20px;
 }
 
-// edit restaurant
+#btnDelete:hover{
+    cursor: pointer;
+}
+// /btn delete
 
-.square-text-container {
-    width: 25vw;
-    min-width: 150px;
+// container img
+
+.card-img{
+    position: relative;
+    width: 100%;
     aspect-ratio: 1;
-    // margin: 0 auto;
 }
 
-.square-image-container{
-
-    width: 25vw;
-    min-width: 150px;
-    aspect-ratio: 1;
-    // margin: auto;
-}
-
-.square-image,.square-image-restaurant,.square-image-edit-restaurant {
+.square-image{
     width: 20vw;
     min-width: 150px;
     aspect-ratio: 1;
@@ -122,75 +141,34 @@ form{
     max-height: 100%;
 }
 
-.square-image-restaurant{
-    min-width: 100px;
-}
-
-.square-image-edit-restaurant{
-    min-width: 136px;
-}
-
-.edit-restaurant{
-    min-width: 85px
-}
-
-
-.btn{
-    font-size: 13px;
-}
-
-
-.flex-center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+// container img
 
 
 //dashboard
 
-.row-dashboard{
-  height: 90vh;
-  padding: 0;
-  margin: 0;
+// .row-dashboard{
+//   height: 90vh;
+//   padding: 0;
+//   margin: 0;
+// }
 
-}
-
-
-.form-visibility{
-    padding: 0;
-    margin: 0;
-}
-
-.btn-table{
-    width: 30px;
-    height: 30px;
-}
-
-
-
-
-
+//dropdown menu welcome
 .navbar-nav .dropdown-menu {
     position: absolute;
-    top: 30px; /* Posiziona il dropdown immediatamente sotto l'elemento genitore */
+    top: 30px;
     right: 0;
     background-color: white;
     z-index: 1000;
 }
 
-// dropdown menu welcome
-
-/* In modalità mobile, rendi il dropdown statico o fixed per evitare l'espansione dell'header */
 @media (max-width: 768px) {
     .navbar-nav .dropdown-menu {
-        position: fixed; /* Fixed mantiene il menu nella posizione senza alterare l'header */
+        position: fixed;
         top: 50px;
         right: 0;
-        // width: 100%;
         background-color: white;
         z-index: 1050;
-        display: none; /* Nascondi il dropdown finché non viene attivato */
+        display: none;
     }
 
     .navbar-nav .dropdown-menu.show {
@@ -201,31 +179,19 @@ form{
 
 // dropdown menu welcome
 
-
-// menu sidebar
+// sidebar
 
 .sidebar.show {
-    position: fixed; /* Rende la sidebar visibile su tutta la pagina */
+    position: fixed;
     top: 54px;
     left: 0;
-    height: 100%; /* Assicura che la sidebar occupi l'intera altezza della pagina */
-    z-index: 1050; /* Posiziona la sidebar sopra altri elementi */
-    overflow-y: auto; /* Aggiunge uno scroll interno se il contenuto è più lungo della sidebar */
+    height: 100%;
+    z-index: 1050;
+    overflow-y: auto;
 }
-
-
-// menu sidebar
-
-
-
-// login
-.bg-trasp{
-    background-color: rgba(255,255,255,0.1);
-}
-// login
+// /sidebar
 
 // navbar-admin
-
 .navbar-toggler{
     box-shadow: none !important;
     border-color: 1px solid gray !important;
@@ -239,4 +205,30 @@ form{
 
 // navbar-admin
 
+// homepage logo
+.logoext{
+    width: 400px;
+}
 
+@media (max-width: 768px){
+    .logoext{
+        width: 300px;
+    }
+}
+// /home page logo
+
+//pagination
+.pagination .page-item .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+.pagination .page-item .page-link i {
+    margin: 0 auto;
+}
+// /pagination

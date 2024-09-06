@@ -155,7 +155,7 @@ is-invalid
 
 
             {{-- image --}}
-            <div class="m-auto mt-3 mb-3 square-image-container">
+            <div class="m-auto mt-3 mb-3 square-image">
                 {{-- img preview --}}
                 <div class="mt-2 card-img">
                     <img id="imagePreview" class="hide square-image" src=""
