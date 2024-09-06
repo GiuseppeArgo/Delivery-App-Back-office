@@ -1,14 +1,12 @@
 @extends('layouts.admin')
 
 @section('content')
+    {{-- title --}}
+    <h1 class="text-center mb-4 mt-5">Aggiungi un piatto</h1>
+    {{-- /title --}}
 
-
-{{-- title --}}
-<h1 class="text-center mb-4 mt-5">Aggiungi un piatto</h1>
-{{-- /title --}}
-
-{{-- container --}}
-<div class="form-container form-padding">
+    {{-- container --}}
+    <div class="form-container form-padding">
 
         {{-- btn-back-menu --}}
         <a href="{{ route('admin.dishes.index') }}" class="btn-action-form btn-left flex-center">
@@ -89,14 +87,16 @@
                         <!--  hide Input file -->
                         <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
                             id="image" style="display:none;">
-                        </div>
-                        {{-- error message --}}
-                        @error('image')
-                            <span class="text-danger">{{ $errors->first('image') }}</span>
-                        @enderror
+                    </div>
+                    {{-- error message --}}
+                    <span id="errorImage" class="text-danger"></span>
 
-                        <span id="errorImage" class="text-danger"></span>
-                        {{-- /error message --}}
+                    @error('image')
+                        <span class="text-danger">{{ $errors->first('image') }}</span>
+                    @enderror
+
+
+                    {{-- /error message --}}
 
                     {{-- /input file image --}}
 

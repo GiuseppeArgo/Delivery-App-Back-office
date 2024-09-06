@@ -138,12 +138,13 @@
                         <img id="oldImg" src="{{ asset('storage/' . $dish->image) }}" alt="Old Image"
                             class="img-fluid mb-2 square-image">
                     @endif
-                    <img id="imagePreview" class="hide mb-2 square-image" src=""
-                        alt="New Image Preview">
+                    <img id="imagePreview" class="hide mb-2 square-image" src="" alt="New Image Preview">
+
+
                     {{-- btn-remove --}}
                     <div class="flex-center mb-2">
-                        <button id="btnDelete" class="hide"
-                            onclick="removeImage(event)">Rimuovi</button>
+                        <button id="btnDelete" class="hide" onclick="removeImage(event)">Rimuovi
+                        </button>
                     </div>
                     {{-- /btn-remove --}}
                 </div>

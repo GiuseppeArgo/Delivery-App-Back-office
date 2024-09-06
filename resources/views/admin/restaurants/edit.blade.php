@@ -9,16 +9,15 @@
     <div class="form-container form-padding">
 
         {{-- btn-home --}}
-            <a href="{{ route('admin.restaurants.index') }}" class="btn-action-form btn-left">
-                <i class="fa-solid fa-arrow-left"></i>
-            </a>
+        <a href="{{ route('admin.restaurants.index') }}" class="btn-action-form btn-left">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
         {{-- /btn-home --}}
 
 
         {{-- form --}}
-        <form class="d-flex flex-column"
-            action="{{ route('admin.restaurants.update', ['restaurant' => $restaurant->slug]) }}" method="POST"
-            enctype="multipart/form-data">
+        <form class="d-flex flex-column" action="{{ route('admin.restaurants.update', ['restaurant' => $restaurant->slug]) }}"
+            method="POST" enctype="multipart/form-data">
             @csrf
             @method('put')
 
@@ -100,11 +99,9 @@
                 {{-- errors typologies --}}
 
                 <div class="container mb-4">
-                    <div class="row" role="group"
-                        aria-label="Basic checkbox toggle button group">
+                    <div class="row" role="group" aria-label="Basic checkbox toggle button group">
                         @foreach ($listTypes as $curType)
-                            <div
-                                class="col-6 col-sm-4 col-md-3 col-lg-3 p-1 rounded-0 btn-group flex-center flex-wrap">
+                            <div class="col-6 col-sm-4 col-md-3 col-lg-3 p-1 rounded-0 btn-group flex-center flex-wrap">
                                 <input type="checkbox" class="btn-check" id="tech-{{ $curType->id }}" name="tipologies[]"
                                     value="{{ $curType->id }}" @checked(in_array($curType->id, old('tipologies', $restaurant->types->pluck('id')->toArray())))>
                                 <label class="btn btn-outline-primary"
@@ -159,8 +156,9 @@
                     {{-- /new image --}}
 
                     {{-- btn-remove --}}
-                    <div id="btnDelete" class="hide" onclick="removeImage(event)">
-                        <span>Rimuovi</span>
+                    <div class="flex-center mb-2">
+                        <button id="btnDelete" class="hide" onclick="removeImage(event)">Rimuovi
+                        </button>
                     </div>
                     {{-- /btn-remove --}}
 

@@ -101,7 +101,7 @@
                                 </li>
                             @endif
 
-                            {{-- Link alla pagina precedente --}}
+                            {{-- Link prev-page --}}
                             @if ($orders->onFirstPage())
                                 <li class="page-item disabled">
                                     <span class="page-link"><i class="fa-solid fa-arrow-left"></i></span>
@@ -112,10 +112,11 @@
                                             class="fa-solid fa-arrow-left"></i></a>
                                 </li>
                             @endif
+                            {{-- /Link prev-page --}}
 
-                            {{-- Pagine vicine alla corrente --}}
+                            {{-- Link page --}}
                             @foreach (range(1, $orders->lastPage()) as $page)
-                                @if ($page >= $orders->currentPage() - 1 && $page <= $orders->currentPage() + 1)
+                                @if ($page >= $orders->currentPage() - 1 && $page <= $orders->currentPage() + 2)
                                     @if ($page == $orders->currentPage())
                                         <li class="page-item active"><span class="page-link">{{ $page }}</span>
                                         </li>
@@ -125,8 +126,10 @@
                                     @endif
                                 @endif
                             @endforeach
+                            {{-- Link page --}}
 
-                            {{-- Link alla pagina successiva --}}
+
+                            {{-- Link next-page --}}
                             @if ($orders->hasMorePages())
                                 <li class="page-item">
                                     <a class="page-link" href="{{ $orders->nextPageUrl() }}" rel="next"><i
@@ -137,8 +140,10 @@
                                     <span class="page-link"><i class="fa-solid fa-arrow-right"></i></span>
                                 </li>
                             @endif
+                            {{-- /Link next-page --}}
 
-                            {{-- Link all'ultima pagina --}}
+
+                            {{-- Link ast-page --}}
                             @if ($orders->currentPage() < $orders->lastPage())
                                 <li class="page-item">
                                     <a class="page-link" href="{{ $orders->url($orders->lastPage()) }}"
@@ -149,6 +154,8 @@
                                     <span class="page-link"><i class="fa-solid fa-angles-right"></i></span>
                                 </li>
                             @endif
+                            {{-- /Link ast-page --}}
+
                         </ul>
                     </div>
                 @endif

@@ -32,7 +32,7 @@
         <header class="central-header navbar navbar-dark sticky-top bg-dark flex-md-nowrap shadow container-fluid p-2">
 
             {{-- logo --}}
-            <div class="container flex-center justify-content-between">
+            <div class="container-fluid ms-3 flex-center justify-content-between">
                 <div>
                     <a class="navbar-brand" href="/">Deliveboo</a>
                 </div>
@@ -52,7 +52,7 @@
 
 
             {{-- /nav bar --}}
-            <div class="navbar-nav">
+            {{-- <div class="navbar-nav">
                 <div class="nav-item text-nowrap me-4 d-none d-md-block">
                     <a class="nav-link" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
@@ -63,7 +63,7 @@
                         @csrf
                     </form>
                 </div>
-            </div>
+            </div> --}}
             {{-- /nav bar --}}
 
         </header>
@@ -140,7 +140,7 @@
 
 
                             {{-- logout --}}
-                            <li class="d-lg-none d-md-none d-sm-block">
+                            <li>
                                 <a class="nav-link  text-white" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                                 document.getElementById('logout-form').submit();">

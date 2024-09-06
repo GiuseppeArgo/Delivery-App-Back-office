@@ -8,8 +8,9 @@
     <h1 class="mt-5 mb-4 text-center">Ordini</h1>
     {{-- /title --}}
 
-    {{-- container --}}
-    <div class="form-container form-padding">
+    {{-- order details  --}}
+    <div class="form-container border rounded-5 p-3">
+
         {{-- btn-back-order --}}
         <form action="{{ route('admin.orders.index') }}" method="GET">
             @csrf
@@ -19,39 +20,37 @@
             </button>
         </form>
         {{-- btn-back-order --}}
-
-        {{-- order details  --}}
-        <div class="container-fluid border rounded-5 p-3">
-            <h5 class="text-center border-bottom pb-2">Riepilogo ordine:</h5>
-            <div class="row">
-                <div class="col-12 col-sm-12 col-md-6">
-                    <div>
-                        <span>
-                            <strong>Ordine n. :</strong>
-                        </span>
-                        <span>
-                            {{ $orderDetails->id }}
-                        </span>
-                    </div>
-                    <div>
-                        <span>
-                            <strong>Nome:</strong>
-                        </span>
-                        <span>
-                            {{ $orderDetails->name }} {{ $orderDetails->lastname }}
-                        </span>
-                    </div>
-                    <div>
-                        <span>
-                            <strong>Indirizzo: </strong>
-                        </span>
-                        <span>
-                            {{ $orderDetails->address }}
-                        </span>
-                    </div>
+        
+        <h5 class="text-center border-bottom pb-2">Riepilogo ordine:</h5>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6">
+                <div>
+                    <span>
+                        <strong>Ordine n. :</strong>
+                    </span>
+                    <span>
+                        {{ $orderDetails->id }}
+                    </span>
                 </div>
-                <div class="col-12 col-sm-12 col-lg-6">
-<div>
+                <div>
+                    <span>
+                        <strong>Nome:</strong>
+                    </span>
+                    <span>
+                        {{ $orderDetails->name }} {{ $orderDetails->lastname }}
+                    </span>
+                </div>
+                <div>
+                    <span>
+                        <strong>Indirizzo: </strong>
+                    </span>
+                    <span>
+                        {{ $orderDetails->address }}
+                    </span>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-lg-6">
+                <div>
                     <span>
                         <strong>E-mail: </strong>
                     </span>
@@ -82,11 +81,14 @@
                     </span>
                 </div>
 
-                </div>
-
             </div>
+
         </div>
-        {{-- /order details  --}}
+    </div>
+    {{-- /order details  --}}
+
+    {{-- container --}}
+    <div class="form-container form-padding">
 
         {{-- dishes order --}}
         <table class="table table-responsive striped text-center mt-5 ">
