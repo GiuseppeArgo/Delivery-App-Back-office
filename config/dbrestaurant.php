@@ -14,7 +14,7 @@ return [
         'name' => 'Sushi Zen',
         'city' => 'Milano',
         'address' => 'Via Milano 2',
-        'image' => 'img/ristoranti/002.png',
+        'image' => 'img/ristoranti/001.png',
         'description' => 'Scopri la vera cucina Giapponese secondo tradizione.',
         'p_iva' => '12345678902'
     ],
