@@ -16,7 +16,7 @@
         </div>
 
         <div class="col-12 col-sm-12 col-md-6 flex-center">
-            <form method="GET" action="{{ route('admin.stats.index') }}" class="d-flex gap-2">
+            <form method="GET" action="{{ route('admin.stats.index') }}" class="flex-center gap-2">
                 <div>
                     <label for="year">Anno:</label>
                     <input type="number" id="year" name="year" value="{{ $year }}"
@@ -27,7 +27,7 @@
                     <input type="number" id="month" name="month" value="{{ $month }}"
                         class="form-control">
                 </div>
-                <div class="d-flex align-items-end">
+                <div class="align-self-end">
                     <button type="submit" class="btn btn-primary">Filtra</button>
                 </div>
             </form>

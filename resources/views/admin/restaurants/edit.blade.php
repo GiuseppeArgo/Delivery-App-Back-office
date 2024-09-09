@@ -98,14 +98,27 @@
                 @endif
                 {{-- errors typologies --}}
 
-                <div class="container mb-4">
+                {{-- <div class="container mb-4">
                     <div class="row" role="group" aria-label="Basic checkbox toggle button group">
                         @foreach ($listTypes as $curType)
                             <div class="col-6 col-sm-4 col-md-3 col-lg-3 p-1 rounded-0 btn-group flex-center flex-wrap">
                                 <input type="checkbox" class="btn-check" id="tech-{{ $curType->id }}" name="tipologies[]"
                                     value="{{ $curType->id }}" @checked(in_array($curType->id, old('tipologies', $restaurant->types->pluck('id')->toArray())))>
-                                <label class="btn btn-outline-primary"
+                                <label class="btn btn-outline-secondary"
                                     for="tech-{{ $curType->id }}">{{ $curType->name }}</label>
+                            </div>
+                        @endforeach
+                    </div>
+                </div> --}}
+                <div class="container mb-4">
+                    <div class="flex-center flex-wrap" role="group" aria-label="Basic checkbox toggle button group">
+                        @foreach ($listTypes as $curType)
+                            <div class="types btn-group flex-center flex-wrap">
+                                <input type="checkbox" class="btn-check" id="tech-{{ $curType->id }}" name="tipologies[]"
+                                    value="{{ $curType->id }}" @checked(in_array($curType->id, old('tipologies', $restaurant->types->pluck('id')->toArray())))>
+                                <label class="btn btn-outline-primary border-0 rounded-circle p-1 ms-1 me-1 mb-1" for="tech-{{ $curType->id }}">
+                                    <img src="{{ asset('storage/img/bandiera/' . $curType->name . '.png') }}" alt="{{ $curType->name }}">
+                                </label>
                             </div>
                         @endforeach
                     </div>
@@ -123,7 +136,7 @@
                     id="image"> --}}
 
                 <!-- customize button -->
-                <button type="button" class="custom-file-upload btn btn-primary d-block ">Scegli file</button>
+                <button type="button" class="custom-file-upload btn btn-outline-secondary d-block ">Scegli file</button>
                 {{-- error message --}}
                 @if (!empty($restaurant->image))
                     @error('image')
@@ -167,23 +180,23 @@
                 {{-- /image --}}
             </div>
 
-
-            {{-- button submit --}}
-            <div class="flex-center">
-                <button class="btn btn-success m-0" type="submit">Conferma</button>
+            <div class="mt-5 d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="asterisco">
+                        *
+                    </span>
+                    <span class="field-required">
+                        questi campi sono obbligatori
+                    </span>
+                </div>
+                {{-- button submit --}}
+                <div class="flex-center">
+                    <button class="btn btn-success m-0" type="submit">Conferma</button>
+                </div>
+                {{-- /button submit --}}
             </div>
-            {{-- /button submit --}}
-
         </form>
         {{-- form --}}
-        <div class="mt-5">
-            <span class="asterisco">
-                *
-            </span>
-            <span class="field-required">
-                questi campi sono obbligatori
-            </span>
-        </div>
     </div>
     {{-- /container  --}}
 

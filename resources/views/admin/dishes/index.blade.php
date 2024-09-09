@@ -30,7 +30,7 @@
                     <div>
                         <form action="{{ route('admin.dishes.create') }}" method="GET">
                             <input type="text" class="hide" name="restaurant_id" value="{{ $restaurant_id }}">
-                            <button type="submit" class="btn-action-form border-0 flex-center">
+                            <button type="submit" class="btn-action-form flex-center">
                                 <i class="fa-solid fa-plus"></i>
                             </button>
                         </form>

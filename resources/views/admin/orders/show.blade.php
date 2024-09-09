@@ -15,12 +15,12 @@
         <form action="{{ route('admin.orders.index') }}" method="GET">
             @csrf
             <input type="text" class="hide" name="restaurant_id" value="{{ $orders['restaurant_id'] }}">
-            <button type="submit" class="btn-action-form btn-left border-0">
+            <button type="submit" class="btn-action-form btn-left">
                 <i class="fa-solid fa-arrow-left"></i>
             </button>
         </form>
         {{-- btn-back-order --}}
-        
+
         <h5 class="text-center border-bottom pb-2">Riepilogo ordine:</h5>
         <div class="row">
             <div class="col-12 col-sm-12 col-md-6">

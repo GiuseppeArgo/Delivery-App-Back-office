@@ -113,17 +113,20 @@
 
             </div>
 
-            {{-- button add and remove --}}
-            <div class="flex-center">
-                <button class="btn btn-success m-0" type="submit">Crea piatto</button>
-            </div>
-            {{-- /button add and remove --}}
-
-            <div class="mt-5">
-                <span class="asterisco">*</span>
-                <span class="field-required">
-                    ⁠questi campi sono obbligatori
-                </span>
+            <div class="mt-5 d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="asterisco">
+                        *
+                    </span>
+                    <span class="field-required">
+                        questi campi sono obbligatori
+                    </span>
+                </div>
+                {{-- button submit --}}
+                <div class="flex-center">
+                    <button class="btn btn-success m-0" type="submit">Crea Piatto</button>
+                </div>
+                {{-- /button submit --}}
             </div>
 
             {{-- hide input --}}

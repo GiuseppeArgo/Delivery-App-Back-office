@@ -28,7 +28,7 @@
                 <div class="row">
 
                     {{-- Name --}}
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mb-3">
+                    <div class="col-9">
                         <label for="name" class="form-label mt-4">Nome piatto <span class="asterisco">*</span>
                             {{-- error message --}}
                             @error('name')
@@ -50,7 +50,7 @@
                     {{-- /Name --}}
 
                     {{-- Availability --}}
-                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 mb-3 align-self-end">
+                    <div class="col-3 align-self-end">
                         <label class="form-label">Disponibilità <span class="asterisco">*</span>
 
                             {{-- errors --}}
@@ -58,14 +58,10 @@
                             {{-- /errors --}}
 
                         </label>
-                        <div class="btn-group d-flex" role="group" aria-label="Disponibilità">
-                            <input type="radio" name="visibility" id="active" value="1" class="btn-check"
-                                {{ $dish->visibility == 1 ? 'checked' : '' }}>
-                            <label class="btn btn-outline-primary" for="active">Si</label>
-                            <input type="radio" name="visibility" id="inactive" value="0" class="btn-check"
-                                {{ $dish->visibility == 0 ? 'checked' : '' }}>
-                            <label class="btn btn-outline-primary" for="inactive">No</label>
-                        </div>
+                        <select name="visibility" class="form-select" aria-label="Disponibilità">
+                            <option value="1" {{ $dish->visibility == 1 ? 'selected' : '' }}>Si</option>
+                            <option value="0" {{ $dish->visibility == 0 ? 'selected' : '' }}>No</option>
+                        </select>
                     </div>
                     {{-- Availability --}}
                 </div>
@@ -116,7 +112,8 @@
                             class="form-control @error('image') is-invalid @enderror"> --}}
 
                         <!-- customize button -->
-                        <button type="button" class="custom-file-upload btn btn-primary d-block">Scegli file</button>
+                        <button type="button" class="custom-file-upload btn btn-outline-secondary d-block">Scegli
+                            file</button>
 
                         <!--  hide Input file -->
                         <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
@@ -151,27 +148,29 @@
             </div>
             {{-- old and new preview image --}}
 
-
-            {{-- button add --}}
-            <div class="flex-center">
-                <button class="btn btn-success m-0" type="submit">Aggiorna</button>
-            </div>
-            {{-- /button add --}}
-
-
             {{-- hide input --}}
             <input type="text" name="restaurant_id" class="hide" value="{{ $restaurant_id }}">
             <input type="text" name="oldname" class="hide" value="{{ $dish->name }}">
             {{-- hide input --}}
 
+
+            <div class="mt-5 d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="asterisco">
+                        *
+                    </span>
+                    <span class="field-required">
+                        questi campi sono obbligatori
+                    </span>
+                </div>
+                {{-- button submit --}}
+                <div class="flex-center">
+                    <button class="btn btn-success m-0" type="submit">Aggiorna</button>
+                </div>
+                {{-- /button submit --}}
         </form>
         {{-- /form --}}
-        <div class="mt-5">
-            <span class="asterisco">*</span>
-            <span class="field-required">
-                questi campi sono obbligatori
-            </span>
-        </div>
+    </div>
     </div>
 
     <script>

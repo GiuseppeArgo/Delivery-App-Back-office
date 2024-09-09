@@ -9,7 +9,8 @@
     <div class="form-container form-padding">
 
         {{-- form --}}
-        <form class="d-flex flex-column" action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data">
+        <form class="d-flex flex-column" action="{{ route('admin.restaurants.store') }}" method="POST"
+            enctype="multipart/form-data">
             @csrf
 
             <div class="container">
@@ -90,15 +91,14 @@
                 {{-- errors typologies --}}
 
                 <div class="container mb-4">
-                    <div class="row" role="group"
-                        aria-label="Basic checkbox toggle button group">
+                    <div class="flex-center flex-wrap" role="group" aria-label="Basic checkbox toggle button group">
                         @foreach ($listTypes as $curType)
-                            <div
-                                class="col-6 col-sm-4 col-md-3 col-lg-3 p-1 rounded-0 btn-group flex-center flex-wrap">
+                            <div class="types btn-group flex-center flex-wrap">
                                 <input type="checkbox" class="btn-check" id="tech-{{ $curType->id }}" name="tipologies[]"
-                                    value="{{ $curType->id }}" @checked(in_array($curType->id, old('tipologies', [])))>
-                                <label class="btn btn-outline-primary"
-                                    for="tech-{{ $curType->id }}">{{ $curType->name }}</label>
+                                    value="{{ $curType->id }}">
+                                <label class="btn btn-outline-primary border-0 rounded-circle p-1 ms-1 me-1 mb-1" for="tech-{{ $curType->id }}">
+                                    <img src="{{ asset('storage/img/bandiera/' . $curType->name . '.png') }}" alt="{{ $curType->name }}">
+                                </label>
                             </div>
                         @endforeach
                     </div>
@@ -142,7 +142,7 @@ is-invalid
                         <span id="errorImage" class="text-danger"></span>
 
                         <!-- customize button -->
-                        <button type="button" class="custom-file-upload btn btn-primary d-block">Scegli file</button>
+                        <button type="button" class="custom-file-upload btn btn-outline-secondary d-block">Scegli file</button>
 
                         <!--  hide Input file -->
                         <input class="form-control @error('image') is-invalid @enderror" type="file" name="image"
@@ -158,28 +158,30 @@ is-invalid
             <div class="m-auto mt-3 mb-3 square-image">
                 {{-- img preview --}}
                 <div class="mt-2 card-img">
-                    <img id="imagePreview" class="hide square-image" src=""
-                        alt="new-image">
+                    <img id="imagePreview" class="hide square-image" src="" alt="new-image">
                 </div>
                 {{-- /img preview --}}
 
             </div>
             {{-- /image --}}
 
-            {{-- button submit --}}
-            <div class="flex-center">
-                <button class="btn btn-success m-0" type="submit">Conferma</button>
-            </div>
-            {{-- /button submit --}}
+
+            <div class="mt-5 d-flex justify-content-between">
+                <div>
+                    <span class="asterisco">*</span>
+                    <span class="field-required">
+                        questi campi sono obbligatori
+                    </span>
+                </div>
+                {{-- button submit --}}
+                <div class="flex-center">
+                    <button class="btn btn-success m-0" type="submit">Conferma</button>
+                </div>
+                {{-- /button submit --}}
 
         </form>
         {{-- /form --}}
-        <div class="mt-5">
-            <span class="asterisco">*</span>
-            <span class="field-required">
-                questi campi sono obbligatori
-            </span>
-        </div>
+    </div>
     </div>
     {{-- /container  --}}
 

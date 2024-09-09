@@ -37,7 +37,7 @@ return [
     ['restaurant_id' => 2,
     'name' => 'Piatto di Sushi',
     'description' => 'Sushi assortito con pesce fresco e verdure.',
-    'image' => 'img/giapponese/009.png',
+    'image' => 'img/cinese/009.png',
     'price' => 13.00,
     'visibility' => true],
     ['restaurant_id' => 2,

@@ -7,9 +7,9 @@
  box-sizing: border-box;
 }
 
-// .sidebar-row{
-//     height: 90vh;
-// }
+.sidebar-row{
+    height: 90vh;
+}
 
 .hide{
     display: none !important;
@@ -74,9 +74,16 @@ form{
     line-height: 30px;
     text-align: center;
     border-radius: 50%;
-    background-color: $blue;
-    color: $white;
+    background-color: white;
+    color: $blue;
+    border: 1px solid $blue;
     text-decoration: none;
+}
+
+.btn-action-form:hover{
+    border-color: 0;
+    color: white;
+    background-color: $blue;
 }
 
 .btn-right,
@@ -232,3 +239,19 @@ form{
     margin: 0 auto;
 }
 // /pagination
+
+.types{
+    width: calc(100% / 8);
+}
+
+@media (max-width: 768px ){
+    .types{
+        width: calc(100% / 4 - 10px);
+    }
+}
+
+@media (max-width: 468px ){
+    .types{
+        width: calc(100% / 2 - 10px);
+    }
+}

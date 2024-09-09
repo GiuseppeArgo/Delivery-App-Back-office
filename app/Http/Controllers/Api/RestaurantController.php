@@ -10,14 +10,12 @@ class RestaurantController extends Controller
 {
     public function index(Request $request)
     {
-        //if request type is not null
+        // Se il tipo è presente nella richiesta
         if ($request->type) {
-            //remove all characters except numbers and turns it into numeric array
             $typesArray = $request->type;
             $typesArray = preg_replace('/[\[\]\s]/', '', $typesArray);
             $typesArray = json_decode('[' . $typesArray . ']');
 
-            //create the query by looping typesArray
             $query = Restaurant::with('types')
                 ->where(function ($query) use ($typesArray) {
                     foreach ($typesArray as $typeId) {
@@ -26,23 +24,26 @@ class RestaurantController extends Controller
                         });
                     }
                 });
-
-        //normal query with all restaurants
         } else {
             $query = Restaurant::with('types');
         }
 
-        $query = $query->get();
+        // Ottieni il numero totale di ristoranti
+        $totalCount = $query->count();
 
-        $data = [
-            'result' => $query
-        ];
+        // Usa la paginazione con 3 elementi per pagina
+        $paginatedResult = $query->paginate(3);
 
-        return response()->json($data);
+        return response()->json([
+            'data' => $paginatedResult->items(),
+            'total' => $totalCount,
+            'current_page' => $paginatedResult->currentPage(),
+            'last_page' => $paginatedResult->lastPage()
+        ]);
     }
 
     public function show(string $slug) {
-        
+
         $showRestaurant = Restaurant::with(['types','dishes'])->where('slug', $slug)->first();
         $data = [
             'result' => $showRestaurant,
