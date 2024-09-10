@@ -4,22 +4,23 @@
     @php
         use Carbon\Carbon;
     @endphp
-    {{-- title --}}
-    <h1 class="mt-5 mb-4 text-center">Ordini</h1>
-    {{-- /title --}}
-
-    {{-- order details  --}}
-    <div class="form-container border rounded-5 p-3">
-
+    {{-- section title --}}
+    <div class="form-container border-0 d-flex align-items-center pt-5">
         {{-- btn-back-order --}}
         <form action="{{ route('admin.orders.index') }}" method="GET">
             @csrf
             <input type="text" class="hide" name="restaurant_id" value="{{ $orders['restaurant_id'] }}">
-            <button type="submit" class="btn-action-form btn-left">
+            <button type="submit" class="btn btn-outline-primary rounded-circle px-2 py-1">
                 <i class="fa-solid fa-arrow-left"></i>
             </button>
         </form>
         {{-- btn-back-order --}}
+        <h1 class="mx-auto">Ordini</h1>
+    </div>
+    {{-- /section title --}}
+
+    {{-- order details  --}}
+    <div class="form-container border rounded-5 p-3">
 
         <h5 class="text-center border-bottom pb-2">Riepilogo ordine:</h5>
         <div class="row">
