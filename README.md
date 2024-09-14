@@ -1,66 +1,119 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# App Delivery Backend
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## About Laravel
+## Descrizione
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Questo repository contiene il backend dell'app di delivery, responsabile della gestione degli ordini, autenticazione utente, interazioni con il database e integrazioni con il sistema di pagamento. L'API è stata sviluppata utilizzando **Laravel** per garantire scalabilità, sicurezza e facilità di manutenzione.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Funzionalità
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Gestione degli utenti (registrazione, login, autenticazione).
+- Aggiunta e modifica di un ristorante.
+- Visualizzazione del menu del ristorante e aggiunta e modifica piatti.
+- Visualizzazione Ordini e dettagli.
+- visualizzazione statistiche ordini mensili con dettagli giornalieri.
+- API RESTful per la comunicazione con il frontend.
+- Integrazione con il sistema di pagamento Braintree.
+- Supporto per database relazionali (MySQL).
 
-## Learning Laravel
+## Requisiti
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Prima di iniziare, assicurati di avere installato:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- [PHP](https://www.php.net/) >= 7.4
+- [Composer](https://getcomposer.org/) - Gestore di pacchetti PHP
+- [MySQL](https://www.mysql.com/) o un altro database SQL compatibile
+- Un account **Braintree** per i pagamenti
+- [Node.js](https://nodejs.org/) e **npm** (per compilare gli asset frontend con **Sass** e **Bootstrap**)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Installazione
 
-## Laravel Sponsors
+Segui questi passi per installare il progetto in locale:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+1. Clona il repository:
 
-### Premium Partners
+    ```bash
+    git clone https://github.com/WalterCorsini/app-delivery-back.git
+    ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+2. Entra nella directory del progetto:
 
-## Contributing
+    ```bash
+    cd app-delivery-back
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+3. Installa le dipendenze PHP usando Composer:
 
-## Code of Conduct
+    ```bash
+    composer install
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+4. Installa le dipendenze frontend (Sass, Bootstrap) con npm:
 
-## Security Vulnerabilities
+    ```bash
+    npm install
+    ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+5. Crea un file `.env` nella root del progetto e aggiungi le variabili di ambiente necessarie:
 
-## License
+    ```bash
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=delivery_app
+    DB_USERNAME=root
+    DB_PASSWORD=password
+    
+    BRAINTREE_MERCHANT_ID=your_merchant_id
+    BRAINTREE_PUBLIC_KEY=your_public_key
+    BRAINTREE_PRIVATE_KEY=your_private_key
+    ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+6. Esegui le migrazioni del database:
+
+    ```bash
+    php artisan migrate
+    ```
+
+7. Avvia il server di sviluppo Laravel:
+
+    ```bash
+    php artisan serve
+    ```
+
+    Il server sarà disponibile su `http://localhost:8000`.
+
+8. Compila gli asset frontend:
+
+    ```bash
+    npm run dev
+    ```
+
+## Struttura del progetto
+
+Di seguito è una rapida panoramica della struttura principale dei file nel progetto:
+
+```bash
+app-delivery-back/
+├── app/            # Contiene i controller, modelli, e altri componenti di Laravel
+├── config/         # Configurazioni per l'applicazione (database, ambiente, ecc.)
+├── public/         # Asset pubblici come CSS e JS
+├── resources/      # Views e file Sass per il frontend
+├── routes/         # Definizione delle rotte API
+├── database/       # Migrazioni e seeding del database
+├── .env            # Variabili di ambiente (non incluso nel repository)
+├── composer.json   # Dipendenze PHP e configurazione di Laravel
+├── package.json    # Dipendenze frontend (npm)
+└── README.md       # Il file che stai leggendo
+```
+
+
+## Tecnologie Utilizzate
+- Laravel - Framework PHP per la gestione delle funzionalità backend.
+- PHP - Linguaggio di programmazione usato per costruire l'applicazione.
+- MySQL - Database relazionale per memorizzare gli utenti, gli ordini e altre entità.
+- Bootstrap - Framework CSS per il frontend, utilizzato insieme a Sass.
+- Sass - Preprocessore CSS utilizzato per strutturare meglio gli stili.
+- Chart.js - Libreria JavaScript per visualizzare grafici e statistiche nella dashboard.
+- Braintree - Integrazione con il sistema di pagamento per gestire le transazioni.

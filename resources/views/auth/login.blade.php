@@ -11,7 +11,7 @@
 
         <div class="row justify-content-center pt-3 pb-4">
             <h1 class="text-center mb-4"> Pagina Login</h1>
-            <div class="col-md-5">
+            <div class=" col-md-8 col-lg-5">
                 <div class="card container bg-trasp">
 
                     {{-- form --}}

@@ -47,7 +47,7 @@
                         <h3 class="text-left">Ordini per giornata</h3>
                         <p class="text-left">Totale numero ordini del mese selezionato: {{ $totalOrders }}</p>
                         <div class="select-container">
-                            <select id="chart-order" class="my_select rounded-3 px-3" >
+                            <select id="chart-order" class="rounded-3 px-3" >
                                 <option value="line">Linee</option>
                                 <option value="bar">Barre</option>
                             </select>

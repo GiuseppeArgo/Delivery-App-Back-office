@@ -16,7 +16,7 @@ return [
     'visibility' => true],
     ['restaurant_id' => 1,
     'name' => 'Lo Sfilatino',
-    'description' => 'Pane di semola,hemmental,pomodoro,romanella e salame milano.',
+    'description' => 'Pane di semola, hemmental, pomodoro, romanella e salame milano.',
     'image' => 'img/panini/003.png',
     'price' => 6.00,
     'visibility' => true],

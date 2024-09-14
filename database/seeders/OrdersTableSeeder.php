@@ -24,8 +24,8 @@ class OrdersTableSeeder extends Seeder
             $newOrder->total_price = 0; // Inizializza il totale a zero
 
             // Genera una data casuale tra il 1 e il 31 di luglio
-            $randomDayOfMonth = rand(1, 30);
-            $randomDate = Carbon::create(2024, 9, $randomDayOfMonth)->startOfDay();
+            $randomDayOfMonth = rand(1, 31);
+            $randomDate = Carbon::create(2024, 8, $randomDayOfMonth)->startOfDay();
 
             // Imposta le date create_at e updated_at
             $newOrder->created_at = $randomDate;

@@ -9,8 +9,8 @@ return [
     [
         'name' => 'Jane',
         'lastname' => 'Doe',
-        'email' => 'jane.doe@example.com',
-        'password' => '11111111'
+        'email' => 'jane.doe@gmail.com',
+        'password' => '22222222'
     ],
     [
         'name' => 'Alice',

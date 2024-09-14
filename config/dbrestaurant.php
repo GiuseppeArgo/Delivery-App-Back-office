@@ -38,7 +38,7 @@ return [
     ],
     [
         'user_id' => 5,
-        'name' => 'Banh Mi',
+        'name' => 'Terra Nostra',
         'city' => 'Milano',
         'address' => 'Via Dante 5',
         'image' => 'img/ristoranti/013.png',

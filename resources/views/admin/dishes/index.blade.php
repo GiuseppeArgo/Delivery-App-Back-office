@@ -4,15 +4,15 @@
 
 
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="flex-center flex-column ">
             {{-- header --}}
 
-            <div class="mt-5 mb-2 text-center ">
+            <div class="container mt-5 mb-2 text-center">
                 <h1 class="p-0 d-block">
                     Menù
                 </h1>
 
-                <div class="flex-center gap-2">
+                <div class="w-75 m-auto d-flex justify-content-between">
                     {{-- btn-home --}}
                     <div>
                         <a href="{{ route('admin.restaurants.index') }}" class="btn-action-form flex-center">

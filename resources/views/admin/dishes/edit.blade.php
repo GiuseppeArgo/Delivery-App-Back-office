@@ -28,7 +28,7 @@
                 <div class="row">
 
                     {{-- Name --}}
-                    <div class="col-9">
+                    <div class="col-7 col-sm-9">
                         <label for="name" class="form-label mt-4">Nome piatto <span class="asterisco">*</span>
                             {{-- error message --}}
                             @error('name')
@@ -50,7 +50,7 @@
                     {{-- /Name --}}
 
                     {{-- Availability --}}
-                    <div class="col-3 align-self-end">
+                    <div class="col-5 col-sm-3 align-self-end">
                         <label class="form-label">Disponibilità <span class="asterisco">*</span>
 
                             {{-- errors --}}

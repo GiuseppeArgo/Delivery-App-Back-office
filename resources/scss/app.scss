@@ -4,8 +4,12 @@
 @import "colorpalette.scss";
 
 
-
-
+@media (max-width: 468px){
+    #chart-order option,
+    #chart-price option {
+        font-size: 10px;
+    }
+}
 
 // index order
 
@@ -33,7 +37,8 @@ td,th{
 }
 
 input,
-textarea{
+textarea,
+select{
     font-size: clamp(10px, 2vw, 16px) !important;
 }
 
